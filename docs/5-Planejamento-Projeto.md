@@ -1,26 +1,22 @@
 # 5. Planejamento do Projeto
 
-> Aqui será feito o gerenciamento das tarefas de implementação do projeto.
-
 ## 5.1. Divisão de Papéis
-
-> Apresente a divisão de papéis entre os membros do grupo em cada sprint. O desejável é que, em cada sprint, o aluno assuma papéis diferentes na disciplina. Siga o modelo do exemplo abaixo:
-
 ### Sprint 1
-- _Scrum master_: AlunaX
-- Protótipos: AlunoY
-- Testes: AlunoK
-- Documentação: AlunaZ
+- _Scrum master_: João Paulo
+- Apresentação: Lucas gabriel, Gabriel Morais, João Paulo, Lucas Batista, Matheus Henrique
+- Confecção dos Slides: Gabriel Morais, João Paulo
+- Contexto: Gabriel Morais
 
 ### Sprint 2
-- _Scrum master_: AlunaY
-- Desenvolvedor _front-end_: AlunoX
-- Desenvolvedor _back-end_: AlunoK
-- Testes: AlunaZ
+- _Scrum master_: João Paulo
+- Personas: Gabriel Morais
+- Historias de Usuarios e Requisitos: João Paulo
+- Modelagem de negocios: Matheus Henrique, Lucas gabriel
+
 
 ## 5.1. Quadro de tarefas
 
-> Apresente a divisão de tarefas entre os membros do grupo e o acompanhamento da execução, conforme exemplo abaixo.
+
 
 ## Sprint 1
 
@@ -28,10 +24,8 @@ Atualizado em: 21/04/2024
 
 | Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
 | :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Introdução | 01/02/2024     | 07/02/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | Objetivos    | 03/02/2024     | 10/02/2024 | 📝    |                 |
-| AlunoY        | Histórias de usuário  | 01/01/2024     | 07/01/2005 | ⌛     |                 |
-| AlunoK        | Personas 1  |    01/01/2024        | 12/02/2005 | ❌    |       |
+| Gabriel Morais, João Paulo | Confecção dos Slides | 20/02/2025     | 28/02/2025 | ✔️    | 28/02/2025      |
+| Gabriel Morais | Contexto    | 13/02/2025    | 21/02/2025 | ✔️    |    21/02/2025             |
 
 ## Sprint 2
 
@@ -39,10 +33,10 @@ Atualizado em: 21/04/2024
 
 | Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
 | :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Home-Page        | 01/02/2024     | 07/03/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | CSS Unificado    | 03/02/2024     | 10/03/2024 | 📝    |                 |
-| AlunoY        | Página de login  | 01/02/2024     | 07/03/2024 | ⌛     |                 |
-| AlunoK        | Script de login  |  01/01/2024    | 12/03/2024 | ❌    |       |
+| Gabriel Morais | Personas | 7/03/2024     | 14/03/2024 | ✔️    | 21/03/2025      |
+| João Paulo |Historias de Usuarios    | 7/03/2024     | 14/03/2024 | ✔️    | 21/03/2025     |
+| João Paulo | Requisitos    | 7/03/2024     | 14/03/2024 | ✔️    | 14/03/2025|
+| Matheus Henrique, Lucas gabriel        | Modelagem dos Processos do negócio  |  21/03/2025    | 04/04/2025  | 📝    |  --/--/----     |
 
 
 Legenda:
