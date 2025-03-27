@@ -1,9 +1,4 @@
 # Especificações do Projeto
-
-<span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
 ## Personas
 
 1.	Maria Fernandes tem 64 anos, é professora aposentada e gosta de passar o tempo em casa lendo e cuidando do jardim. Ela se preocupa com os gastos domésticos e busca maneiras de economizar. Maria deseja reduzir sua conta de energia, mas não entende muito de tecnologia e precisa de informações simples e diretas. Seu maior desafio é identificar quais aparelhos consomem mais energia em sua casa. Para ela, um sistema fácil de usar, com explicações claras e didáticas, seria ideal. Seu objetivo é encontrar formas de economizar sem precisar investir em novos equipamentos caros.
