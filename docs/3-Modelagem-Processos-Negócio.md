@@ -159,12 +159,44 @@ O uso de nosso aplicativo de monitoramento de consumo de energia propõe uma sol
 - **Benefício**: Esses relatórios permitem que os usuários vejam claramente a diferença de consumo de um aparelho para o outro.
 
 # 3.2. Descrição geral da proposta (Modelagem TO BE)
+A solução proposta busca otimizar o monitoramento do consumo de energia por meio de automação e inteligência artificial. Com a introdução de um sistema digital integrado, os usuários terão acesso a dados em tempo real, notificações personalizadas e insights para reduzir desperdícios.
 
-Tendo identificado os gargalos dos modelos AS IS, apresentem uma descrição da proposta de solução, buscando maior eficiência com a introdução da tecnologia. Abordem também os limites dessa solução e o seu alinhamento com as estratégias e objetivos do contexto de negócio escolhido. 
-Colem aqui os modelos da solução proposta (modelo TO BE) elaborados com o apoio da ferramenta baseada em BPMN utilizada na disciplina.
-Cada processo identificado deve ter seu modelo TO-BE específico. Descrevam as oportunidades de melhoria de cada processo da solução proposta.
+### Alinhamento com a Estratégia e Objetivos do Negócio
+- Eficiência Energética: Permitir que os usuários identifiquem desperdícios e otimizem o uso de eletricidade.
+- Acessibilidade e Usabilidade: Interface intuitiva, fácil de interpretar e adaptável para diferentes perfis de usuários.
+- Automação de Processos: Redução da necessidade de monitoramento manual, tornando o acompanhamento do consumo mais preciso.
+- Sustentabilidade: Incentivo a práticas mais ecológicas por meio de recomendações inteligentes.
 
-_Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias._
+### Limitações da Solução
+- Dependência de Hardware: Necessário o uso de medidores inteligentes compatíveis.
+- Conectividade: O funcionamento em tempo real depende de conexão estável com a internet.
+- Adoção pelo Usuário: Alguns usuários podem ter dificuldades na adaptação a novas tecnologias.
+
+# Processo 1: Coleta e Análise de Consumo
+Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
+Fluxo do Processo (BPMN em MD)
+graph TD;
+    A[📡 Medidor inteligente coleta dados] -->|Envio de dados| B[(🌐 Servidor na nuvem)];
+    B -->|Processamento de informações| C[🔍 Análise de padrões de consumo];
+    C -->|Geração de alertas| D{🚨 Consumo anormal detectado?};
+    D -- Sim --> E[📩 Enviar notificação ao usuário];
+    D -- Não --> F[📊 Armazenar dados para relatórios futuros];
+    E --> F;
+
+### Processo 2: Notificação Inteligente e Ações Corretivas
+Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
+Fluxo do Processo (BPMN em MD)
+graph TD;
+    A[📡 Sistema monitora consumo em tempo real] --> B{🔴 Consumo acima do limite?};
+    B -- Sim --> C[📩 Gerar alerta e enviar ao usuário];
+    B -- Não --> D[✅ Manter monitoramento];
+    C --> E[💡 Oferecer sugestões de economia];
+    E --> F[📉 Usuário aplica ação corretiva];
+
+### Oportunidades de Melhoria
+- Personalização dos alertas com base no perfil do usuário.
+- Automação de resposta, permitindo desligamento remoto de dispositivos.
+
 
 # 3.3. Modelagem dos processos
 
