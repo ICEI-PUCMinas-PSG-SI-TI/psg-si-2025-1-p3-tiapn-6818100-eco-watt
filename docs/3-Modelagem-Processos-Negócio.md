@@ -1,105 +1,111 @@
 # 3. Modelagem dos Processos de Negócio
- 
+
 ## 3.0.1. Introdução
- 
-Com o aumento do consumo energético e a busca por mais eficiência no uso da eletricidade, o monitoramento inteligente de energia se torna essencial para os usuários residenciais. Nosso sistema foi desenvolvido para oferecer uma visão clara e detalhada do consumo de energia, permitindo identificar padrões, reduzir gastos e detectar possíveis anomalias. Para garantir um funcionamento eficiente, a solução é estruturada em três categorias de processos: primários, de suporte e gerenciais.
- 
+Com o aumento do consumo energético e a busca por eficiência no uso da eletricidade, o monitoramento inteligente de energia se torna essencial para usuários residenciais. Nosso sistema foi desenvolvido para oferecer uma visão clara e detalhada do consumo, permitindo identificar padrões, reduzir gastos e detectar anomalias. A solução é estruturada em três categorias de processos: primários, de suporte e gerenciais, com melhorias nos fluxos de cadastro, análise e geração de relatórios.
+
 ## 3.0.2. Identificação e Classificação dos Processos
- 
+
 ### 3.0.2.1. Processos Primários (Essenciais)
- 
+
 #### Coleta de Dados do Consumo
- 
-- **Descrição**: Os medidores inteligentes realizam leituras periódicas e transmitem os dados ao sistema.
-- **Objetivo**: Garantir medições precisas e em tempo real.
- 
+- **Descrição:** Medidores inteligentes realizam leituras periódicas e transmitem dados ao sistema.
+- **Objetivo:** Garantir medições precisas e em tempo real.
+
 #### Análise de Consumo
- 
-- **Descrição**: O sistema processa os dados coletados e identifica padrões de uso.
-- **Objetivo**: Fornecer insights para otimização do consumo.
- 
+- **Descrição:** O sistema processa os dados coletados, identifica padrões e calcula o consumo energético.
+- **Objetivo:** Fornecer insights para otimização e estimativa de custos.
+
 #### Notificação ao Usuário
- 
-- **Descrição**: O sistema envia alertas automáticos sobre consumo elevado, sugestões de economia e possíveis falhas.
-- **Objetivo**: Informar e auxiliar na redução de desperdícios.
- 
+- **Descrição:** Alertas automáticos sobre consumo elevado, sugestões de economia e falhas.
+- **Objetivo:** Informar e auxiliar na redução de desperdícios.
+
 #### Geração de Relatórios
- 
-- **Objetivo**: Consolidar informações sobre consumo em períodos específicos para análise detalhada.
- 
+- **Descrição:** Consolida informações sobre consumo em períodos específicos, incluindo comparações históricas e projeções futuras.
+- **Objetivo:** Facilitar a tomada de decisão com dados estruturados.
+
 ### 3.0.2.2. Processos de Suporte (Apoio)
- 
+
 #### Gerenciamento de Dispositivos
- 
-- **Descrição**: Cadastro e manutenção dos medidores inteligentes.
-- **Objetivo**: Garantir que todos os dispositivos operem corretamente.
- 
+- **Descrição:** Cadastro e manutenção dos medidores inteligentes e eletrodomésticos vinculados.
+- **Objetivo:** Garantir que todos os dispositivos operem corretamente.
+
 #### Gestão de Usuários
- 
-- **Descrição**: Controle de perfis e permissões de acesso.
-- **Objetivo**: Assegurar a segurança das informações.
- 
+- **Descrição:** Controle de perfis e permissões de acesso.
+- **Objetivo:** Assegurar a segurança das informações.
+
 #### Infraestrutura de TI
- 
-- **Descrição**: Manutenção dos servidores que armazenam e processam os dados.
-- **Objetivo**: Garantir estabilidade e disponibilidade do sistema.
- 
+- **Descrição:** Manutenção dos servidores que armazenam e processam os dados.
+- **Objetivo:** Garantir estabilidade e disponibilidade do sistema.
+
+#### Cadastro de Eletrodomésticos
+- **Descrição:** Permite ao usuário registrar seus aparelhos, informando potência e tempo médio de uso.
+- **Objetivo:** Personalizar cálculos de consumo e gerar relatórios mais precisos.
+
+#### Cadastro do Fórum
+- **Descrição:** Espaço para interação entre usuários, compartilhamento de dicas e resolução de dúvidas.
+- **Objetivo:** Promover comunidade e troca de conhecimento sobre eficiência energética.
+
+#### Cadastro de Dicas
+- **Descrição:** Banco de dicas personalizadas com base nos hábitos de consumo do usuário.
+- **Objetivo:** Incentivar práticas sustentáveis e redução de gastos.
+
 ### 3.0.2.3. Processos Gerenciais
- 
+
 #### Monitoramento da Qualidade do Serviço
- 
-- **Descrição**: Avaliação da precisão das medições e desempenho do sistema.
-- **Objetivo**: Assegurar um serviço confiável.
- 
+- **Descrição:** Avaliação da precisão das medições e desempenho do sistema.
+- **Objetivo:** Assegurar um serviço confiável.
+
 #### Gestão de Anomalias
- 
-- **Objetivo**: Detectar e corrigir falhas no funcionamento do sistema.
- 
+- **Objetivo:** Detectar e corrigir falhas no funcionamento do sistema.
+
 #### Auditoria e Relatórios Gerenciais
- 
-- **Objetivo**: Fornecer informações para melhoria contínua do serviço.
- 
+- **Objetivo:** Fornecer informações para melhoria contínua do serviço.
+
 ## 3.0.3. Entradas e Saídas dos Processos
- 
-| **Processo**             | **Entradas**                          | **Saídas**                              |
-|---------------------------|---------------------------------------|-----------------------------------------|
-| Coleta de Dados           | Leituras dos medidores inteligentes   | Dados armazenados no banco de dados     |
-| Análise de Consumo        | Dados coletados                       | Padrões detectados, alertas gerados     |
-| Notificação ao Usuário    | Alertas gerados                       | Mensagens enviadas (SMS, e-mail, app)   |
-| Geração de Relatórios     | Dados históricos de consumo           | Relatórios acessíveis via sistema       |
- 
+
+| Processo                  | Entradas                              | Saídas                                   |
+|---------------------------|---------------------------------------|------------------------------------------|
+| Coleta de Dados           | Leituras dos medidores inteligentes   | Dados armazenados no banco de dados      |
+| Análise de Consumo        | Dados coletados                       | Padrões detectados, alertas gerados      |
+| Notificação ao Usuário    | Alertas gerados                       | Mensagens enviadas (SMS, e-mail, app)    |
+| Geração de Relatórios     | Dados históricos de consumo           | Relatórios acessíveis via sistema        |
+| Cadastro de Eletrodomésticos | Dados do aparelho (potência, uso)  | Estimativas de consumo por dispositivo   |
+| Cadastro do Fórum         | Postagens e interações dos usuários   | Banco de conhecimento compartilhado      |
+| Cadastro de Dicas         | Dicas personalizadas                  | Recomendações para redução de consumo    |
+
 ## 3.0.4. Localização dos Processos
- 
-- **Na Residência**: O medidor inteligente coleta e transmite os dados.
-- **No Servidor na Nuvem**: O sistema processa os dados, identifica padrões e gera relatórios.
-- **No App/Site do Usuário**: O usuário acessa seu consumo, recebe alertas e visualiza relatórios.
-- **No Painel do Administrador**: Equipes de suporte acompanham o desempenho do sistema e gerenciam dispositivos.
- 
+- **Na Residência:** Medidor inteligente coleta e transmite dados.
+- **No Servidor na Nuvem:** Sistema processa dados, identifica padrões e gera relatórios.
+- **No App/Site do Usuário:** Acesso a consumo, alertas, fórum e dicas.
+- **No Painel do Administrador:** Equipes de suporte gerenciam dispositivos e monitoram desempenho.
+
 ## 3.0.5. Participantes do Processo
- 
-Cada etapa do monitoramento conta com diferentes participantes:
- 
-- **Medidores Inteligentes**: Dispositivos responsáveis pela coleta de dados.
-- **Sistema de Monitoramento**: Processa informações e gera insights para os usuários.
-- **Equipe Técnica**: Garante a manutenção dos dispositivos e servidores.
-- **Administradores**: Supervisionam o desempenho do sistema e gerenciam acessos.
- 
+- **Medidores Inteligentes:** Coletam dados de consumo.
+- **Sistema de Monitoramento:** Processa informações e gera insights.
+- **Usuários:** Cadastram eletrodomésticos, interagem no fórum e recebem dicas.
+- **Equipe Técnica:** Mantém dispositivos e servidores.
+- **Administradores:** Supervisionam desempenho e gerenciam acessos.
+
 ## 3.0.6. Produtos de Informação
- 
-- **Relatórios de Consumo**: Apresentação visual do histórico de consumo.
-- **Alertas de Consumo Elevado**: Notificações automáticas sobre gastos acima da média.
-- **Relatórios Técnicos**: Logs detalhados do funcionamento do sistema.
-- **Relatórios de Gestão**: Dados analíticos sobre otimização energética.
- 
+- **Relatórios de Consumo:** Histórico detalhado com gráficos e comparações.
+- **Alertas de Consumo Elevado:** Notificações em tempo real.
+- **Relatórios Técnicos:** Logs de funcionamento do sistema.
+- **Relatórios de Gestão:** Dados analíticos para otimização energética.
+- **Dicas Personalizadas:** Sugestões baseadas no perfil de consumo.
+
 ## 3.0.7. Conexão com a Arquitetura do Software
- 
-- **Usuários e Permissões**: O sistema conta com perfis diferenciados (morador, administrador, técnico).
-- **Banco de Dados**: Estruturado para armazenar informações essenciais, como:
-  - Tabela Usuários (id, nome, e-mail, tipo de usuário).
-  - Tabela Medidores (id, residência, status, último envio de dados).
-  - Tabela Registros de Consumo (medidor_id, timestamp, consumo).
-  - Tabela Alertas (usuário_id, tipo, data).
-  - Tabela Relatórios (usuário_id, período, dados).
+**Usuários e Permissões:** Perfis diferenciados (morador, administrador, técnico).
+
+**Banco de Dados:** Estrutura ampliada para suportar novos recursos:
+- Tabela Eletrodomésticos (id, usuário_id, nome, potência, tempo_uso)
+- Tabela Fórum (id, usuário_id, postagem, data)
+- Tabela Dicas (id, categoria, conteúdo)
+- Tabela Usuários (id, nome, e-mail, tipo)
+- Tabela Medidores (id, residência, status)
+- Tabela Registros de Consumo (medidor_id, timestamp, consumo)
+- Tabela Alertas (usuário_id, tipo, data)
+- Tabela Relatórios (usuário_id, período, dados)
+- 
 # 3.1. Modelagem da situação atual (Modelagem AS IS)
  
 Atualmente, muitas pessoas enfrentam problemas com contas de luz elevadas, o que representa um grande impacto financeiro, principalmente em residências que possuem um uso descontrolado de energia. Isso acontece por diversas razões:
