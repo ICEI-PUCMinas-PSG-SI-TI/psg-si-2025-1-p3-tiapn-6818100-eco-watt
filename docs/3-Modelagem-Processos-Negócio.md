@@ -7,59 +7,35 @@ Com o aumento do consumo energético e a busca por eficiência no uso da eletric
 
 ### 3.0.2.1. Processos Primários (Essenciais)
 
-#### Coleta de Dados do Consumo
-- **Descrição:** Medidores inteligentes realizam leituras periódicas e transmitem dados ao sistema.
-- **Objetivo:** Garantir medições precisas e em tempo real.
+- Coleta de Dados do Consumo
 
-#### Análise de Consumo
-- **Descrição:** O sistema processa os dados coletados, identifica padrões e calcula o consumo energético.
-- **Objetivo:** Fornecer insights para otimização e estimativa de custos.
+- Análise de Consumo
 
-#### Notificação ao Usuário
-- **Descrição:** Alertas automáticos sobre consumo elevado, sugestões de economia e falhas.
-- **Objetivo:** Informar e auxiliar na redução de desperdícios.
+-Notificação ao Usuário
 
-#### Geração de Relatórios
-- **Descrição:** Consolida informações sobre consumo em períodos específicos, incluindo comparações históricas e projeções futuras.
-- **Objetivo:** Facilitar a tomada de decisão com dados estruturados.
+- Geração de Relatórios
 
 ### 3.0.2.2. Processos de Suporte (Apoio)
 
-#### Gerenciamento de Dispositivos
-- **Descrição:** Cadastro e manutenção dos medidores inteligentes e eletrodomésticos vinculados.
-- **Objetivo:** Garantir que todos os dispositivos operem corretamente.
+- Gerenciamento de Dispositivos
 
-#### Gestão de Usuários
-- **Descrição:** Controle de perfis e permissões de acesso.
-- **Objetivo:** Assegurar a segurança das informações.
+- Gestão de Usuários
 
-#### Infraestrutura de TI
-- **Descrição:** Manutenção dos servidores que armazenam e processam os dados.
-- **Objetivo:** Garantir estabilidade e disponibilidade do sistema.
+- Infraestrutura de TI
 
-#### Cadastro de Eletrodomésticos
-- **Descrição:** Permite ao usuário registrar seus aparelhos, informando potência e tempo médio de uso.
-- **Objetivo:** Personalizar cálculos de consumo e gerar relatórios mais precisos.
+- Cadastro de Eletrodomésticos
 
-#### Cadastro do Fórum
-- **Descrição:** Espaço para interação entre usuários, compartilhamento de dicas e resolução de dúvidas.
-- **Objetivo:** Promover comunidade e troca de conhecimento sobre eficiência energética.
+- Cadastro do Fórum
 
-#### Cadastro de Dicas
-- **Descrição:** Banco de dicas personalizadas com base nos hábitos de consumo do usuário.
-- **Objetivo:** Incentivar práticas sustentáveis e redução de gastos.
+- Cadastro de Dicas
 
 ### 3.0.2.3. Processos Gerenciais
 
-#### Monitoramento da Qualidade do Serviço
-- **Descrição:** Avaliação da precisão das medições e desempenho do sistema.
-- **Objetivo:** Assegurar um serviço confiável.
+- Monitoramento da Qualidade do Serviço
 
-#### Gestão de Anomalias
-- **Objetivo:** Detectar e corrigir falhas no funcionamento do sistema.
+- Gestão de Anomalias
 
-#### Auditoria e Relatórios Gerenciais
-- **Objetivo:** Fornecer informações para melhoria contínua do serviço.
+- Auditoria e Relatórios Gerenciais
 
 ## 3.0.3. Entradas e Saídas dos Processos
 
