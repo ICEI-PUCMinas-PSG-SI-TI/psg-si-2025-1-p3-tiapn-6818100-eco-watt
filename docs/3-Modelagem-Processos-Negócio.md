@@ -177,27 +177,16 @@ A solução proposta busca otimizar o monitoramento do consumo de energia por me
 
 ### Processo 1: Coleta e Análise de Consumo
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
-Fluxo do Processo
-``` mermaid
-graph TD;
-    A[📡 Medidor inteligente coleta dados] -->|Envio de dados| B[(🌐 Banco de dados)];
-    B -->|Processamento de informações| C[🔍 Análise de padrões de consumo];
-    C -->|Geração de alertas| D{🚨 Consumo anormal detectado?};
-    D -- Sim --> E[📩 Enviar notificação ao usuário];
-    D -- Não --> F[📊 Armazenar dados para relatórios futuros];
-    E --> F;
-````
+Fluxo do Processo:
+
+https://prnt.sc/tdjDt0TzOORo 
+
 ### Processo 2: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
-Fluxo do Processo (BPMN em MD)
-```mermaid
-graph TD;
-    A[📡 Sistema monitora consumo em tempo real] --> B{🔴 Consumo acima do limite?};
-    B -- Sim --> C[📩 Gerar alerta e enviar ao usuário];
-    B -- Não --> D[✅ Manter monitoramento];
-    C --> E[💡 Oferecer sugestões de economia];
-    E --> F[📉 Usuário aplica ação corretiva];
-```
+Fluxo do Processo:
+
+https://prnt.sc/abDWmN9YIuFf
+
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
 - Automação de resposta, permitindo desligamento remoto de dispositivos.
