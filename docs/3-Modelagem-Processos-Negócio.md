@@ -11,7 +11,7 @@ Com o aumento do consumo energético e a busca por eficiência no uso da eletric
 
 - Análise de Consumo
 
--Notificação ao Usuário
+- Notificação ao Usuário
 
 - Geração de Relatórios
 
