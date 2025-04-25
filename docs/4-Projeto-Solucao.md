@@ -5,15 +5,22 @@
 ## 4.1. Arquitetura da solução
 
 
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
+A arquitetura da solução foi pensada para ser simples, escalável e fácil de manter, utilizando tecnologias web amplamente adotadas.
+O sistema é composto por:
 
- Inclua um diagrama da solução e descreva os módulos e as tecnologias
- que fazem parte da solução. Discorra sobre o diagrama.
- 
- **Exemplo do diagrama de Arquitetura**:
- 
- ![Exemplo de Arquitetura](./images/arquitetura-exemplo.png)
- 
+• Frontend (cliente): desenvolvido com HTML, CSS e JavaScript (com opção de usar frameworks como React ou Vue.js), responsável por exibir as páginas da calculadora, dicas, fórum e perfil do usuário.
+
+• Backend (servidor): API desenvolvida em Node.js (ou Python com Flask), hospedada no Heroku ou Render, que processa os cálculos de consumo, armazena dados do usuário e gerencia o fórum.
+
+• Banco de Dados: MongoDB ou Firebase, para armazenar os registros dos cálculos, usuários, dicas e postagens do fórum.
+
+• Armazenamento Local: o navegador pode utilizar LocalStorage para manter preferências ou dados temporários.
+
+• APIs externas (futuro opcional): integração com APIs de energia elétrica para tarifa automática ou APIs de previsão do tempo para consumo inteligente
+
+
+ ![image](https://github.com/user-attachments/assets/4c78289b-d9b8-4adc-a8a5-b0a24a251ede)
+
 
 ### 4.2. Protótipos de telas
 
