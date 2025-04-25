@@ -15,7 +15,6 @@ Com o aumento do consumo energético e a busca por eficiência no uso da eletric
 
 - Geração de Relatórios
    
-https://prnt.sc/5tAfWrNI5UDz
 
 ### 3.0.2.2. Processos de Suporte (Apoio)
 
@@ -173,7 +172,7 @@ Fluxo do Processo:
 ### Processo 4: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
-![Exemplo de um modelo relacional]()
+![Exemplo de um processo]()
 
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
