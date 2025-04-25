@@ -14,7 +14,7 @@ Com o aumento do consumo energético e a busca por eficiência no uso da eletric
 - Notificação ao Usuário
 
 - Geração de Relatórios
-
+https://prnt.sc/5tAfWrNI5UDz
 ### 3.0.2.2. Processos de Suporte (Apoio)
 
 - Gerenciamento de Dispositivos
