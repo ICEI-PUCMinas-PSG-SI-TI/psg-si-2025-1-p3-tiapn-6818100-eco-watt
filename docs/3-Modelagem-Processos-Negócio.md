@@ -165,6 +165,16 @@ Fluxo do Processo:
 
 https://prnt.sc/abDWmN9YIuFf
 
+### Processo 3: Notificação Inteligente e Ações Corretivas
+Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
+Fluxo do Processo:
+![Exemplo de um modelo relacional](images/diagrama1.jpg "Exemplo de Modelo Relacional.")
+
+### Processo 4: Notificação Inteligente e Ações Corretivas
+Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
+Fluxo do Processo:
+![Exemplo de um modelo relacional](images/diagrama2.jpg "Exemplo de Modelo Relacional.")
+
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
 - Automação de resposta, permitindo desligamento remoto de dispositivos.
