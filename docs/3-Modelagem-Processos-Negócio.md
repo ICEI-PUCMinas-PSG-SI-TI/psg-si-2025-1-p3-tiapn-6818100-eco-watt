@@ -173,7 +173,7 @@ Fluxo do Processo:
 ### Processo 4: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
-![Exemplo de um modelo relacional](images/diagrama2.jpg "Exemplo de Modelo Relacional.")
+![Exemplo de um modelo relacional]()
 
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
