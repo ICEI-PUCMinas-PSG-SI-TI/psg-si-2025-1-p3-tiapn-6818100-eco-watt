@@ -156,7 +156,7 @@ A solução proposta busca otimizar o monitoramento do consumo de energia por me
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
 Fluxo do Processo:
 
-![Exemplo de um modelo relacional](images/notificacaoInteligente1.png "Exemplo de Modelo Relacional.")
+![Exemplo de um modelo relacional](images/notificacaoInteligente11.png "Exemplo de Modelo Relacional.")
 
 ### Processo 2: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
