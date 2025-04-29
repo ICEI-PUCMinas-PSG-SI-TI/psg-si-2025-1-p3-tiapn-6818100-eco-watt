@@ -92,7 +92,7 @@ Fluxo do Processo:
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
 
-![Exemplo de um modelo relacional](images/_Fluxograma1.png "Exemplo de Modelo Relacional.")
+![_Fluxograma1](https://github.com/user-attachments/assets/6c352ad9-6761-42ef-94ff-e46392a7c897)
 
 ### Processo 3: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
