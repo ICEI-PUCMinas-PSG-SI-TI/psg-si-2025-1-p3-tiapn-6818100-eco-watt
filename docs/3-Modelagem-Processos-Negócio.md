@@ -84,7 +84,7 @@ Limitações da Solução
 
 ### Processo 1: Coleta e Análise de Consumo
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
-Fluxo do Processo:
+Fluxo do Processo: Participantes - Usuário e Fluxogama Funcional
 ![Captura de tela Imagem digrama1](https://github.com/user-attachments/assets/4110bd37-5ed9-4c64-92d7-a4a44efd1b90)
 ![Detalhamento-atividades](https://github.com/user-attachments/assets/d3212cdc-c015-45b4-af1f-4c52fe2a476b)
 
