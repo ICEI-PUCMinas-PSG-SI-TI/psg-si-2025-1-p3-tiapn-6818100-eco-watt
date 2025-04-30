@@ -91,15 +91,9 @@ Fluxo do Processo: Participantes - Usuário e Fluxogama Funcional
 ### Processo 2: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
-
-
+![Diagrama2](https://github.com/user-attachments/assets/3616d312-f5db-46a1-abb1-d314d788df63)
 
 ### Processo 3: Notificação Inteligente e Ações Corretivas
-Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
-Fluxo do Processo:
-![Exemplo de um modelo relacional](images/diagrama1.jpg "Exemplo de Modelo Relacional.")
-
-### Processo 4: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
 ![Exemplo de um processo]()
