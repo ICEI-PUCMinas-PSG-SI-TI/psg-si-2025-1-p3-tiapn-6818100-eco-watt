@@ -83,8 +83,9 @@ Limitações da Solução
 # 3.3. Modelagem dos processos
 
 ### Processo 1: Coleta e Análise de Consumo
+Participantes: Usuário e Fluxogama Funcional
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
-Fluxo do Processo: Participantes - Usuário e Fluxogama Funcional
+Fluxo do Processo: 
 ![Captura de tela Imagem digrama1](https://github.com/user-attachments/assets/4110bd37-5ed9-4c64-92d7-a4a44efd1b90)
 
 | **Processo**                        | **Entradas**                                              | **Saídas**                                      |
@@ -100,6 +101,7 @@ Fluxo do Processo: Participantes - Usuário e Fluxogama Funcional
 | Armazenar Dados                    | Dados normalizados                                        | Histórico para relatórios futuros              |
 
 ### Processo 2: Notificação Inteligente e Ações Corretivas
+participantes: Sistema e usuário
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
 ![Diagrama2](https://github.com/user-attachments/assets/3616d312-f5db-46a1-abb1-d314d788df63)
