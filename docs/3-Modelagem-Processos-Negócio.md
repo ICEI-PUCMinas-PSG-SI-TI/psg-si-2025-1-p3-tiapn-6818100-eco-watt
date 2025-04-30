@@ -108,6 +108,18 @@ Este processo assegura que os usuários recebam alertas automáticos sempre que 
 Fluxo do Processo:
 ![Diagrama2](https://github.com/user-attachments/assets/3616d312-f5db-46a1-abb1-d314d788df63)
 
+| **Processo**                         | **Entradas**                            | **Saídas**                                      |
+|-------------------------------------|-----------------------------------------|-------------------------------------------------|
+| Receber dados do equipamento        | Dados de sensores/equipamento           | Dados recebidos para análise                    |
+| Analisar consumo                    | Dados recebidos                         | Dados analisados                                |
+| Detectar consumo excessivo?         | Dados analisados                        | (Sim) → gerar alerta / (Não) → continuar monitorando |
+| Ficar monitorando                   | Dados em tempo real                     | Aguardando nova análise                         |
+| Enviar alerta e sugestões ao usuário| Consumo excessivo detectado             | Alerta e sugestões geradas                      |
+| Receber notificação                 | Alerta do sistema                       | Notificação visível para o usuário              |
+| Acessar plataforma                  | Notificação recebida                    | Tela de login acessada                          |
+| Fazer login                         | E-mail e senha                          | Acesso à conta do usuário                       |
+| Visualizar alerta e sugestão       | Acesso à conta                          | Informações exibidas ao usuário                 |
+
 ### Processo 3: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
 Fluxo do Processo:
