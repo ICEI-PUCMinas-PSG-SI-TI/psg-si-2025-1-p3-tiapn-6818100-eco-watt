@@ -87,16 +87,17 @@ Este processo automatiza a coleta de dados dos medidores inteligentes e sua aná
 Fluxo do Processo: Participantes - Usuário e Fluxogama Funcional
 ![Captura de tela Imagem digrama1](https://github.com/user-attachments/assets/4110bd37-5ed9-4c64-92d7-a4a44efd1b90)
 
-Processo	Entradas	Saídas
-Acessar Ferramenta	Login (e-mail), Senha	Acesso à ferramenta / Cadastro de novo usuário
-Informar Dados de Consumo	Consumo atual, Período selecionado	Dados enviados para o sistema
-Receber os Dados	JSON de consumo enviado	Dados validados
-Enviar para o Banco de Dados	Dados validados	Dados salvos no banco de dados
-Processar Informações de Consumo	Dados salvos	Dados normalizados e média mensal
-Analisar Padrões de Consumo	Dados processados	Detecção de padrões / desvios
-Decisão: Consumo Anormal Detectado?	Dados comparados com média	(Sim) → alerta gerado / (Não) → histórico salvo
-Enviar Notificação ao Usuário	Alerta de consumo anormal	Notificação via e-mail ou push
-Armazenar Dados	Dados normalizados	Histórico para relatórios futuros
+| **Processo**                        | **Entradas**                                              | **Saídas**                                      |
+|------------------------------------|-----------------------------------------------------------|-------------------------------------------------|
+| Acessar Ferramenta                 | Login (e-mail), Senha                                     | Acesso à ferramenta / Cadastro de novo usuário |
+| Informar Dados de Consumo          | Consumo atual, Período selecionado                        | Dados enviados para o sistema                  |
+| Receber os Dados                   | JSON de consumo enviado                                   | Dados validados                                |
+| Enviar para o Banco de Dados       | Dados validados                                           | Dados salvos no banco de dados                 |
+| Processar Informações de Consumo   | Dados salvos                                              | Dados normalizados e média mensal              |
+| Analisar Padrões de Consumo        | Dados processados                                         | Detecção de padrões / desvios                  |
+| Decisão: Consumo Anormal Detectado?| Dados comparados com média                                | (Sim) → alerta gerado / (Não) → histórico salvo|
+| Enviar Notificação ao Usuário      | Alerta de consumo anormal                                 | Notificação via e-mail ou push                 |
+| Armazenar Dados                    | Dados normalizados                                        | Histórico para relatórios futuros              |
 
 ### Processo 2: Notificação Inteligente e Ações Corretivas
 Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
