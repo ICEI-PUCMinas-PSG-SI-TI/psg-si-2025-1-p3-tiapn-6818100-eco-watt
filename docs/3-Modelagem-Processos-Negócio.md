@@ -120,10 +120,30 @@ Fluxo do Processo:
 | Fazer login                         | E-mail e senha                          | Acesso à conta do usuário                       |
 | Visualizar alerta e sugestão       | Acesso à conta                          | Informações exibidas ao usuário                 |
 
-### Processo 3: Notificação Inteligente e Ações Corretivas
-Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
+### Processo 3: Gerar histórico de usuário 
+participantes: Sistema e usuário.
+
+Este processo tem como objetivo monitorar automaticamente os dados de consumo dos usuários, identificar padrões de consumo excessivo ou incomum, e notificar os usuários com alertas e sugestões de economia. Além disso, o sistema mantém um histórico das interações e decisões do usuário, permitindo o acompanhamento de melhorias e ajustes no consumo ao longo do tempo.
 Fluxo do Processo:
-![Exemplo de um processo]()
+![diagrama3](https://github.com/user-attachments/assets/6b69d933-aa4d-4037-9af9-caf9b32e8615)
+
+| **Processo**                             | **Entradas**                                 | **Saídas**                                           |
+|-----------------------------------------|----------------------------------------------|------------------------------------------------------|
+| Receber dados de consumo                | Dados coletados dos dispositivos do usuário  | Dados disponíveis para validação                    |
+| Validar dados recebidos                 | Dados brutos de consumo                      | Dados prontos para análise                          |
+| Analisar padrão de consumo              | Dados validados                              | Padrão identificado / Detecção de anomalias         |
+| Verificar consumo excessivo             | Padrão de consumo analisado                  | (Sim) → prosseguir com alerta / (Não) → registrar como normal |
+| Registrar consumo normal                | Consumo dentro do padrão esperado            | Dados registrados no histórico                      |
+| Gerar alerta                            | Consumo excessivo detectado                  | Alerta de consumo gerado                            |
+| Gerar sugestão de economia              | Alerta gerado                                | Sugestão personalizada criada                       |
+| Enviar notificação ao usuário           | Alerta e sugestão disponíveis                | Notificação entregue ao usuário                     |
+| Receber notificação                     | Notificação enviada pelo sistema             | Ação do usuário iniciada (acesso à plataforma)      |
+| Acessar plataforma                      | Notificação recebida                         | Tela de login aberta                                |
+| Fazer login                             | E-mail e senha do usuário                    | Acesso concedido à conta                            |
+| Visualizar alerta e sugestão           | Acesso à plataforma                          | Informações de alerta/sugestão exibidas             |
+| Interagir com a sugestão               | Alerta e sugestão exibidos                   | (Sim) → aplicar sugestão / (Não) → apenas visualizar |
+| Registrar sugestão aplicada             | Ação do usuário (aplicar sugestão)           | Sugestão registrada no histórico                    |
+| Registrar visualização do alerta       | Ação do usuário (visualização sem ação)      | Visualização registrada no histórico                |
 
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
