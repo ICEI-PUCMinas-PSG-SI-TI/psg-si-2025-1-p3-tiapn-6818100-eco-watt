@@ -50,83 +50,143 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER�
 
 
 ### 4.3. Modelo de dados
-
-O desenvolvimento da solução proposta requer a existência de bases de dados que permitam efetuar os cadastros de dados e controles associados aos processos identificados, assim como recuperações.
-Utilizando a notação do DER (Diagrama Entidade e Relacionamento), elaborem um modelo, na ferramenta visual indicada na disciplina, que contemple todas as entidades e atributos associados às atividades dos processos identificados. Deve ser gerado um único DER que suporte todos os processos escolhidos, visando, assim, uma base de dados integrada. O modelo deve contemplar, também, o controle de acesso de usuários (partes interessadas dos processos) de acordo com os papéis definidos nos modelos do processo de negócio.
-_Apresente o modelo de dados por meio de um modelo relacional que contemple todos os conceitos e atributos apresentados na modelagem dos processos._
-
 #### 4.3.1 Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
 
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![Exemplo de um ER](images/ER.png "Exemplo de Modelo Relacional.")
 
 #### 4.3.2 Esquema Relacional
 
-O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
- 
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
 
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
-
-![Exemplo de um modelo relacional](images/modeloRelacional.png "Exemplo de Modelo Relacional.")
+![Exemplo de um modelo relacional](images/Relação.png "Exemplo de Modelo Relacional.")
 ---
 
 
 #### 4.3.3 Modelo Físico
 
-Insira aqui o script de criação das tabelas do banco de dados.
 
-Veja um exemplo:
+CREATE DATABASE IF NOT EXISTS Sistema`
 
-<code>
+-- Table Usuario
 
- -- Criação da tabela Médico
-CREATE TABLE Medico (
-    MedCodigo INTEGER PRIMARY KEY,
-    MedNome VARCHAR(100)
+CREATE TABLE IF NOT EXISTS Usuario (
+  email VARCHAR(255) NOT NULL,
+  foto VARCHAR(255),
+  senha VARCHAR(255) NOT NULL,
+  PRIMARY KEY (email)
 );
 
+-- Table Eletrodomestico
 
--- Criação da tabela Paciente
-CREATE TABLE Paciente (
-    PacCodigo INTEGER PRIMARY KEY,
-    PacNome VARCHAR(100)
+CREATE TABLE IF NOT EXISTS Eletrodomestico (
+
+  Id INT NOT NULL AUTO_INCREMENT,
+  
+  descricao TEXT,
+  
+  Imagem VARCHAR(255),
+  
+  nome VARCHAR(100) NOT NULL,
+  
+  gastoMedio DECIMAL(10,2) NOT NULL,
+  
+  PRIMARY KEY (Id)
+  
 );
 
--- Criação da tabela Consulta
-CREATE TABLE Consulta (
-    ConCodigo INTEGER PRIMARY KEY,
-    MedCodigo INTEGER,
-    PacCodigo INTEGER,
-    Data DATE,
-    FOREIGN KEY (MedCodigo) REFERENCES Medico(MedCodigo),
-    FOREIGN KEY (PacCodigo) REFERENCES Paciente(PacCodigo)
+-- Table UsuTemEletro
+
+CREATE TABLE IF NOT EXISTS UsuTemEletro (
+
+  FkEmail VARCHAR(255) NOT NULL,
+  
+  FkId INT NOT NULL,
+  
+  PRIMARY KEY (FkEmail, FkId),
+  
+  CONSTRAINT fk_Usuario_Eletro
+  
+   FOREIGN KEY (FkEmail)
+    
+   REFERENCES Usuario (email)
+    
+   ON DELETE CASCADE
+    
+   ON UPDATE CASCADE,
+    
+  CONSTRAINT fk_Eletrodomestico
+  
+   FOREIGN KEY (FkId)
+    
+   REFERENCES Eletrodomestico (Id)
+    
+   ON DELETE CASCADE
+    
+   ON UPDATE CASCADE
+    
 );
 
--- Criação da tabela Medicamento
-CREATE TABLE Medicamento (
-    MdcCodigo INTEGER PRIMARY KEY,
-    MdcNome VARCHAR(100)
+-- Table Post
+
+CREATE TABLE IF NOT EXISTS Post (
+
+  ID INT NOT NULL AUTO_INCREMENT,
+  
+  Hora TIME NOT NULL,
+  
+  Data DATE NOT NULL,
+  
+  Imagem VARCHAR(255),
+  
+  descricao TEXT,
+  
+  titulo VARCHAR(150) NOT NULL,
+  
+  FkEmail VARCHAR(255) NOT NULL,
+  
+  PRIMARY KEY (ID),
+  
+  CONSTRAINT fk_Post_Usuario
+  
+   FOREIGN KEY (FkEmail)
+    
+   REFERENCES Usuario (email)
+    
+   ON DELETE CASCADE
+    
+   ON UPDATE CASCADE
+    
 );
 
--- Criação da tabela Prescricao
-CREATE TABLE Prescricao (
-    ConCodigo INTEGER,
-    MdcCodigo INTEGER,
-    Posologia VARCHAR(200),
-    PRIMARY KEY (ConCodigo, MdcCodigo),
-    FOREIGN KEY (ConCodigo) REFERENCES Consulta(ConCodigo),
-    FOREIGN KEY (MdcCodigo) REFERENCES Medicamento(MdcCodigo)
+-- Table Comentario
+
+CREATE TABLE IF NOT EXISTS Comentario (
+
+  ID INT NOT NULL AUTO_INCREMENT,
+  
+  texto TEXT NOT NULL,
+  
+  hora TIME NOT NULL,
+  
+  data DATE NOT NULL,
+
+  imagem VARCHAR(255),
+  
+  FKID INT NOT NULL,
+  
+  PRIMARY KEY (FKID),
+  
+  CONSTRAINT fk_Comentario_Post
+  
+   FOREIGN KEY (FKID)
+    
+   REFERENCES Post (ID)
+    
+   ON DELETE CASCADE
+    
+   ON UPDATE CASCADE
 );
-
-</code>
-
-Este script deverá ser incluído em um arquivo .sql na pasta src\bd.
-
-
 
 
 ### 4.4. Tecnologias
