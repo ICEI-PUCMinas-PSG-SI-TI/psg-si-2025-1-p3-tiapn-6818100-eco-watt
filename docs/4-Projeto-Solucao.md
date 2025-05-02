@@ -25,8 +25,10 @@ O sistema é composto por:
 ### 4.2. Protótipos de telas
 
 
-![image](https://github.com/user-attachments/assets/4b5e56ce-c07f-4d3d-a1a2-00f28ac9d591)
-![image](https://github.com/user-attachments/assets/b6a2914d-73b4-45d5-b6cd-b9ab3775d9a8)
+![Screenshot_1](https://github.com/user-attachments/assets/2479e3cd-d354-4fae-bf52-472b0d7d45cf)
+![Screenshot_2](https://github.com/user-attachments/assets/c60b4821-a2ae-443d-a74e-03537e1d4d8f)
+
+
 
 
 
