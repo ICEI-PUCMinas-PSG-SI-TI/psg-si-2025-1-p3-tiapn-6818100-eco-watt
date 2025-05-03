@@ -149,7 +149,8 @@ Fluxo do Processo:
 Participantes: Sistema e Usuário
 
 Este processo tem como objetivo identificar automaticamente os posts com maior número de curtidas e exibi-los em destaque na página inicial da aplicação. O sistema consulta a base de dados, ordena os posts por popularidade, seleciona os três mais curtidos e atualiza a seção de destaques. O usuário, ao acessar a página inicial, visualiza esses posts em destaque e pode interagir com eles por meio de curtidas, comentários ou compartilhamentos.
-![Uploading fluxograma4.png…]()
+![fluxograma4](https://github.com/user-attachments/assets/0e19ac6c-5754-449e-92e0-0ac595360c2d)
+
 
 
 | **Processo**                              | **Entradas**                                  | **Saídas**                                 |
