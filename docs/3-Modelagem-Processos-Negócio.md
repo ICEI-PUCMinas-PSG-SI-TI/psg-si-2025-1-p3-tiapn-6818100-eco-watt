@@ -145,6 +145,23 @@ Fluxo do Processo:
 | Registrar sugestão aplicada             | Ação do usuário (aplicar sugestão)           | Sugestão registrada no histórico                    |
 | Registrar visualização do alerta       | Ação do usuário (visualização sem ação)      | Visualização registrada no histórico                |
 
+### Processo 4: Posts, curtidas
+Participantes: Sistema e Usuário
+
+Este processo tem como objetivo identificar automaticamente os posts com maior número de curtidas e exibi-los em destaque na página inicial da aplicação. O sistema consulta a base de dados, ordena os posts por popularidade, seleciona os três mais curtidos e atualiza a seção de destaques. O usuário, ao acessar a página inicial, visualiza esses posts em destaque e pode interagir com eles por meio de curtidas, comentários ou compartilhamentos.
+![fluxograma4](https://github.com/user-attachments/assets/ade43033-f7ff-45f3-9910-228ce9ded196)
+
+| **Processo**                              | **Entradas**                                  | **Saídas**                                 |
+|-------------------------------------------|-----------------------------------------------|---------------------------------------------|
+| Acessar Página Inicial                    | Requisição do usuário                         | Página inicial carregada                    |
+| Verificar Base de Dados dos Posts        | Solicitação de análise                        | Dados dos posts disponíveis                 |
+| Ordenar Posts por Número de Curtidas     | Posts com quantidade de curtidas              | Posts ordenados por popularidade            |
+| Selecionar os Mais Curtidos (top 3)      | Lista de posts ordenados                      | Top 3 posts selecionados                    |
+| Atualizar Lista de Destaque              | Top 3 posts mais curtidos                     | Lista de destaque atualizada                |
+| Exibir Posts em Destaque ao Usuário      | Lista de destaque                             | Posts visíveis ao usuário na página inicial |
+| Visualizar os Posts Mais Curtidos        | Página inicial com destaques                  | Posts visualizados pelo usuário             |
+| Interagir com os Posts                   | Posts visualizados                            | Curtidas, comentários ou compartilhamentos  |
+
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
 - Automação de resposta, permitindo desligamento remoto de dispositivos.
