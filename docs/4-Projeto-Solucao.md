@@ -134,6 +134,8 @@ CREATE TABLE IF NOT EXISTS UsuTemEletro (
 CREATE TABLE IF NOT EXISTS Post (
 
   ID INT NOT NULL AUTO_INCREMENT,
+
+  likes int not null;
   
   Hora TIME NOT NULL,
   
