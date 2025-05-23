@@ -1,0 +1,88 @@
+body {
+  font-family: 'Raleway', 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, white, #d0e4ff);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-custom {
+  background-color: #d0e4ff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d4fa2;
+}
+
+.btn-navbar {
+  background-color: white;
+  color: #3273dc;
+  border: 1px solid #3273dc;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-navbar:hover {
+  background-color: #3273dc;
+  color: white;
+  border-color: #1d4fa2;
+  transform: scale(1.05);
+}
+
+.conteudo-comparacao {
+  padding: 40px 0;
+}
+
+.bloco-comparacao {
+  background-color: #f4faff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.titulo-produto {
+  color: #1d4fa2;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.carrossel-custom img {
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.separador-vertical {
+  width: 2px;
+  background-color: #000;
+  height: 100%;
+}
+
+.classificacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.label-classificacao {
+  font-weight: 500;
+}
+
+.campo-classificacao {
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background-color: white;
+}
+.carrossel-custom img {
+  width: 100%;       /* Já tem no seu HTML */
+  height: 300px;     /* altura fixa que você pode ajustar */
+  object-fit: cover; /* mantém a proporção e preenche a área */
+}

@@ -1,0 +1,81 @@
+body {
+  font-family: 'Raleway', 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, white, #d0e4ff);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.navbar-custom {
+  background-color: #d0e4ff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d4fa2;
+}
+
+.btn-navbar {
+  background-color: white;
+  color: #3273dc;
+  border: 1px solid #3273dc;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-navbar:hover {
+  background-color: #3273dc;
+  color: white;
+  border-color: #1d4fa2;
+  transform: scale(1.05);
+}
+
+.comentario-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.titulo-novo {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d4fa2;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.campo-comentario {
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-enviar {
+  background: linear-gradient(to right, #1d4fa2, #3273dc);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  float: right;
+  margin-top: 15px;
+}
+
+.btn-enviar:hover {
+  background: linear-gradient(to right, #163b80, #285cb8);
+  transform: scale(1.05);
+}

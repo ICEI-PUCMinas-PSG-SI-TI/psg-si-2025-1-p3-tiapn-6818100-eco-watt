@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoWatt - Fórum</title>
+  <link rel="stylesheet" href="styles6.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    .comentario {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 8px;
+    }
+    .btn-flutuante {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #198754;
+      color: white;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .btn-flutuante:hover {
+      background-color: #145c32;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="navbar-brand logo-text">EcoWatt</div>
+      <div>
+        <a href="index8.html" class="btn btn-navbar me-2">Histórico</a>
+        <a href="index3.html" class="btn btn-navbar me-2">Login</a>
+        <a href="index4.html" class="btn btn-navbar me-2">Cadastro</a>
+        <a href="index.html" class="btn btn-navbar me-2">Calculadora</a>
+        <a href="index6.html" class="btn btn-navbar me-2">Fórum</a>
+        <a href="index5.html" class="btn btn-navbar me-2">Início</a>
+        <button id="btnLogout" class="btn btn-danger">Sair</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo dos comentários -->
+  <div class="container conteudo-principal" style="min-height: 70vh; margin-top: 20px; max-width: 700px;">
+    <h1>Fórum</h1>
+    <div id="usuarioLogadoMsg" style="margin-bottom: 20px; font-weight: 600; font-size: 1.2em;"></div>
+    <div class="comments-container"></div>
+  </div>
+
+  <!-- Botão flutuante para adicionar comentário -->
+  <a href="#" class="btn-flutuante" id="btnAddComentario" title="Adicionar comentário">+</a>
+
+  <!-- Modal para adicionar comentário -->
+  <div id="modalComentario" style="display:none; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+    <div style="background:#fff; padding: 20px; border-radius: 8px; width: 90%; max-width: 400px;">
+      <h5>Adicionar Comentário</h5>
+      <textarea id="novoComentarioTexto" rows="4" style="width:100%;" placeholder="Escreva seu comentário aqui..."></textarea>
+      <div style="margin-top: 10px; text-align: right;">
+        <button id="btnCancelar" class="btn btn-secondary me-2">Cancelar</button>
+        <button id="btnSalvar" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const containerComentarios = document.querySelector('.comments-container');
+    const usuarioLogadoMsg = document.getElementById('usuarioLogadoMsg');
+    const modalComentario = document.getElementById('modalComentario');
+    const btnAddComentario = document.getElementById('btnAddComentario');
+    const btnCancelar = document.getElementById('btnCancelar');
+    const btnSalvar = document.getElementById('btnSalvar');
+    const textareaComentario = document.getElementById('novoComentarioTexto');
+    const btnLogout = document.getElementById('btnLogout');
+
+    function carregarComentarios() {
+      const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+      const likes = JSON.parse(localStorage.getItem('likes')) || [];
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+      const curtidasUsuarios = JSON.parse(localStorage.getItem('curtidasUsuarios')) || {};
+
+      if (usuarioLogado) {
+        usuarioLogadoMsg.textContent = `Logado como: ${usuarioLogado.nome}`;
+        btnLogout.style.display = 'inline-block';
+      } else {
+        usuarioLogadoMsg.textContent = 'Você não está logado.';
+        btnLogout.style.display = 'none';
+      }
+
+      containerComentarios.innerHTML = '';
+
+      comentarios.forEach((comentarioObj, index) => {
+        let texto = comentarioObj.texto || '';
+        let nomeUsuario = comentarioObj.usuario || `Usuário${index + 1}`;
+        let curtidas = likes[index] || 0;
+
+        const div = document.createElement('div');
+        div.classList.add('comentario');
+
+        // Verifica se o usuário já curtiu este comentário
+        let jaCurtiu = false;
+        if (usuarioLogado && curtidasUsuarios[usuarioLogado.nome] && curtidasUsuarios[usuarioLogado.nome].includes(index)) {
+          jaCurtiu = true;
+        }
+
+        div.innerHTML = `
+          <strong>${nomeUsuario}:</strong> ${texto}
+          <div style="margin-top: 5px;">
+            <button onclick="toggleCurtir(${index})" class="btn btn-sm btn-outline-success">
+              ${jaCurtiu ? 'Descurtir' : 'Curtir'}
+            </button>
+            <span id="like-${index}">${curtidas}</span> curtidas
+          </div>
+        `;
+
+        containerComentarios.appendChild(div);
+      });
+    }
+
+    function toggleCurtir(index) {
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+      if (!usuarioLogado) {
+        alert('Você precisa estar logado para curtir/descurtir.');
+        return;
+      }
+
+      let curtidasUsuarios = JSON.parse(localStorage.getItem('curtidasUsuarios')) || {};
+      if (!curtidasUsuarios[usuarioLogado.nome]) {
+        curtidasUsuarios[usuarioLogado.nome] = [];
+      }
+
+      let likes = JSON.parse(localStorage.getItem('likes')) || [];
+      likes[index] = likes[index] || 0;
+
+      if (curtidasUsuarios[usuarioLogado.nome].includes(index)) {
+        // Descurtir: remove o índice do array e decrementa curtidas
+        curtidasUsuarios[usuarioLogado.nome] = curtidasUsuarios[usuarioLogado.nome].filter(i => i !== index);
+        likes[index] = Math.max(0, likes[index] - 1);
+      } else {
+        // Curtir: adiciona o índice e incrementa curtidas
+        curtidasUsuarios[usuarioLogado.nome].push(index);
+        likes[index]++;
+      }
+
+      localStorage.setItem('curtidasUsuarios', JSON.stringify(curtidasUsuarios));
+      localStorage.setItem('likes', JSON.stringify(likes));
+
+      carregarComentarios();
+    }
+
+    btnAddComentario.addEventListener('click', (e) => {
+      e.preventDefault();
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+      if (!usuarioLogado) {
+        alert('Você precisa estar logado para adicionar comentários.');
+        return;
+      }
+      textareaComentario.value = '';
+      modalComentario.style.display = 'flex';
+      textareaComentario.focus();
+    });
+
+    btnCancelar.addEventListener('click', () => {
+      modalComentario.style.display = 'none';
+    });
+
+    btnSalvar.addEventListener('click', () => {
+      const texto = textareaComentario.value.trim();
+      if (!texto) {
+        alert('Digite um comentário antes de salvar.');
+        return;
+      }
+      adicionarComentario(texto);
+      modalComentario.style.display = 'none';
+      carregarComentarios();
+    });
+
+    function adicionarComentario(texto) {
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+      if (!usuarioLogado) {
+        alert('Você precisa estar logado para comentar.');
+        return;
+      }
+
+      let comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+      let likes = JSON.parse(localStorage.getItem('likes')) || [];
+
+      comentarios.push({ usuario: usuarioLogado.nome, texto });
+      likes.push(0);
+
+      localStorage.setItem('comentarios', JSON.stringify(comentarios));
+      localStorage.setItem('likes', JSON.stringify(likes));
+    }
+
+    btnLogout.addEventListener('click', () => {
+      localStorage.removeItem('usuarioLogado');
+      alert('Você saiu da sua conta.');
+      window.location.href = 'index3.html';
+    });
+
+    window.onload = carregarComentarios;
+  </script>
+</body>
+</html>
