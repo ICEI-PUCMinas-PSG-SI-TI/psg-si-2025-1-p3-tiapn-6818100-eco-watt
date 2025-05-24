@@ -68,130 +68,77 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER�
 #### 4.3.3 Modelo Físico
 
 
-CREATE DATABASE IF NOT EXISTS Sistema`
-
--- Table Usuario
-
-CREATE TABLE IF NOT EXISTS Usuario (
-  email VARCHAR(255) NOT NULL,
-  foto VARCHAR(255),
-  senha VARCHAR(255) NOT NULL,
-  PRIMARY KEY (email)
+```
+-- Tabela Usuário
+CREATE TABLE Usuario (
+    email VARCHAR(255) PRIMARY KEY,
+    senha VARCHAR(255) NOT NULL,     
+    foto_perfil BLOB                
 );
 
--- Table Eletrodomestico
-
-CREATE TABLE IF NOT EXISTS Eletrodomestico (
-
-  Id INT NOT NULL AUTO_INCREMENT,
-  
-  descricao TEXT,
-  
-  Imagem VARCHAR(255),
-  
-  nome VARCHAR(100) NOT NULL,
-  
-  gastoMedio DECIMAL(10,2) NOT NULL,
-  
-  PRIMARY KEY (Id)
-  
+-- Tabela Post
+CREATE TABLE Post (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT,                
+    data DATE NOT NULL,
+    hora TIME NOT NULL,
+    imagem BLOB,                   
+    usuario_email VARCHAR(255),
+    FOREIGN KEY (usuario_email) REFERENCES Usuario(email)
 );
 
--- Table UsuTemEletro
-
-CREATE TABLE IF NOT EXISTS UsuTemEletro (
-
-  FkEmail VARCHAR(255) NOT NULL,
-  
-  FkId INT NOT NULL,
-  
-  PRIMARY KEY (FkEmail, FkId),
-  
-  CONSTRAINT fk_Usuario_Eletro
-  
-   FOREIGN KEY (FkEmail)
-    
-   REFERENCES Usuario (email)
-    
-   ON DELETE CASCADE
-    
-   ON UPDATE CASCADE,
-    
-  CONSTRAINT fk_Eletrodomestico
-  
-   FOREIGN KEY (FkId)
-    
-   REFERENCES Eletrodomestico (Id)
-    
-   ON DELETE CASCADE
-    
-   ON UPDATE CASCADE
-    
+-- Tabela Comentário
+CREATE TABLE Comentario (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    imagem BLOB,
+    data DATE NOT NULL,
+    hora TIME NOT NULL,
+    post_id INT NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES Post(Id)
 );
 
--- Table Post
-
-CREATE TABLE IF NOT EXISTS Post (
-
-  ID INT NOT NULL AUTO_INCREMENT,
-
-  likes int not null;
-  
-  Hora TIME NOT NULL,
-  
-  Data DATE NOT NULL,
-  
-  Imagem VARCHAR(255),
-  
-  descricao TEXT,
-  
-  titulo VARCHAR(150) NOT NULL,
-  
-  FkEmail VARCHAR(255) NOT NULL,
-  
-  PRIMARY KEY (ID),
-  
-  CONSTRAINT fk_Post_Usuario
-  
-   FOREIGN KEY (FkEmail)
-    
-   REFERENCES Usuario (email)
-    
-   ON DELETE CASCADE
-    
-   ON UPDATE CASCADE
-    
+-- Tabela Avaliação (corrigida estrutura)
+CREATE TABLE Avaliacao (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    nota DOUBLE NOT NULL,
+    comentario TEXT,
+    post_id INT NOT NULL,
+    usuario_email VARCHAR(255) NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES Post(Id),
+    FOREIGN KEY (usuario_email) REFERENCES Usuario(email)
 );
 
--- Table Comentario
-
-CREATE TABLE IF NOT EXISTS Comentario (
-
-  ID INT NOT NULL AUTO_INCREMENT,
-  
-  texto TEXT NOT NULL,
-  
-  hora TIME NOT NULL,
-  
-  data DATE NOT NULL,
-
-  imagem VARCHAR(255),
-  
-  FKID INT NOT NULL,
-  
-  PRIMARY KEY (FKID),
-  
-  CONSTRAINT fk_Comentario_Post
-  
-   FOREIGN KEY (FKID)
-    
-   REFERENCES Post (ID)
-    
-   ON DELETE CASCADE
-    
-   ON UPDATE CASCADE
+-- Tabela Eletrodoméstico 
+CREATE TABLE Eletrodomestico (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    imagem BLOB,
+    custo_medio DOUBLE            
 );
 
+-- Tabela de Relação Usuário-Eletrodoméstico (TemEletrodomestico)
+CREATE TABLE UsuarioEletrodomestico (
+    usuario_email VARCHAR(255) NOT NULL,
+    eletrodomestico_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (usuario_email, eletrodomestico_id),
+    FOREIGN KEY (usuario_email) REFERENCES Usuario(email),
+    FOREIGN KEY (eletrodomestico_id) REFERENCES Eletrodomestico(Id)
+);
+
+-- Tabela Dica
+CREATE TABLE Dica (
+    Id INT PRIMARY KEY,
+    texto TEXT NOT NULL,
+    imagem BLOB,
+    post_id INT PRIMARY KEY,
+    FOREIGN KEY (post_id) REFERENCES Post(Id)
+);
+
+```
 
 ### 4.4. Tecnologias
 
