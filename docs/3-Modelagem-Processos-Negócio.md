@@ -105,6 +105,7 @@ Fluxo do Processo:
 participantes: Sistema e usuário.
 
 O sistema permite que usuários façam login ou criem uma conta. Ele valida as credenciais informadas e, caso estejam corretas, concede acesso ao sistema. Se os dados forem inválidos, exibe mensagens de erro apropriadas. No caso de cadastro, o sistema valida os dados inseridos e cria a conta, permitindo o acesso logo em seguida.
+
 Fluxo do Processo:
 ![image](https://github.com/user-attachments/assets/4e3a5f69-c184-4dd4-b34e-0386e8de34f0)
 
@@ -151,6 +152,7 @@ Fluxo do Processo:
 Participantes: Sistema e Usuário
 
 O sistema permite que o usuário utilize uma calculadora de consumo energético e pesquise eletrodomésticos com base em critérios inseridos manualmente. Após a busca, o sistema consulta o banco de dados e retorna os resultados encontrados, que são então exibidos para o usuário de forma simples e acessível:
+
 Fluxo do Processo:
 ![image](https://github.com/user-attachments/assets/2e0e3e8d-d030-4c25-8b18-a4de05598574)
 
