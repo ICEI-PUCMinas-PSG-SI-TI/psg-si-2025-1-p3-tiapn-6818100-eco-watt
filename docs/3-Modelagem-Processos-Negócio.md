@@ -104,20 +104,8 @@ Fluxo do Processo:
 ### Processo 2: Pesquisar Eletrodoméstico
 participantes: Sistema e usuário.
 
-O sistema permite que o usuário utilize uma calculadora de consumo energético e pesquise eletrodomésticos com base em critérios inseridos manualmente. Após a busca, o sistema consulta o banco de dados e retorna os resultados encontrados, que são então exibidos para o usuário de forma simples e acessível.:
-[Uploading diagramEletrodomestico.bpmn…]()
 
-| **Processo**                         | **Entradas**                            | **Saídas**                                      |
-|-------------------------------------|-----------------------------------------|-------------------------------------------------|
-| Receber dados do equipamento        | Dados de sensores/equipamento           | Dados recebidos para análise                    |
-| Analisar consumo                    | Dados recebidos                         | Dados analisados                                |
-| Detectar consumo excessivo?         | Dados analisados                        | (Sim) → gerar alerta / (Não) → continuar monitorando |
-| Ficar monitorando                   | Dados em tempo real                     | Aguardando nova análise                         |
-| Enviar alerta e sugestões ao usuário| Consumo excessivo detectado             | Alerta e sugestões geradas                      |
-| Receber notificação                 | Alerta do sistema                       | Notificação visível para o usuário              |
-| Acessar plataforma                  | Notificação recebida                    | Tela de login acessada                          |
-| Fazer login                         | E-mail e senha                          | Acesso à conta do usuário                       |
-| Visualizar alerta e sugestão       | Acesso à conta                          | Informações exibidas ao usuário                 |
+
 
 ### Processo 3: Gerar histórico de usuário 
 participantes: Sistema e usuário.
@@ -144,24 +132,22 @@ Fluxo do Processo:
 | Registrar sugestão aplicada             | Ação do usuário (aplicar sugestão)           | Sugestão registrada no histórico                    |
 | Registrar visualização do alerta       | Ação do usuário (visualização sem ação)      | Visualização registrada no histórico                |
 
-### Processo 4: Posts, curtidas
+### Processo 4: Pesquisar Eletrodoméstico
 Participantes: Sistema e Usuário
 
-Este processo tem como objetivo identificar automaticamente os posts com maior número de curtidas e exibi-los em destaque na página inicial da aplicação. O sistema consulta a base de dados, ordena os posts por popularidade, seleciona os três mais curtidos e atualiza a seção de destaques. O usuário, ao acessar a página inicial, visualiza esses posts em destaque e pode interagir com eles por meio de curtidas, comentários ou compartilhamentos.
-![fluxograma4](https://github.com/user-attachments/assets/0e19ac6c-5754-449e-92e0-0ac595360c2d)
+O sistema permite que o usuário utilize uma calculadora de consumo energético e pesquise eletrodomésticos com base em critérios inseridos manualmente. Após a busca, o sistema consulta o banco de dados e retorna os resultados encontrados, que são então exibidos para o usuário de forma simples e acessível.:
+![image](https://github.com/user-attachments/assets/2e0e3e8d-d030-4c25-8b18-a4de05598574)
 
+| **Processo**                     | **Entradas**               | **Saídas**                           |
+| -------------------------------- | -------------------------- | ------------------------------------ |
+| Abrir calculadora de consumo     | Acesso do usuário          | Tela da calculadora aberta           |
+| Usar a calculadora               | Dados de consumo inseridos | Resultado do cálculo                 |
+| Digitar nome do eletrodoméstico  | Nome digitado pelo usuário | Termo de busca                       |
+| Receber solicitação de pesquisa  | Termo de busca             | Solicitação recebida                 |
+| Buscar eletrodomésticos no banco | Solicitação recebida       | Lista de eletrodomésticos            |
+| Retornar resultados da busca     | Lista de eletrodomésticos  | Resultados da busca                  |
+| Visualizar resultados            | Resultados da busca        | Eletrodomésticos exibidos ao usuário |
 
-
-| **Processo**                              | **Entradas**                                  | **Saídas**                                 |
-|-------------------------------------------|-----------------------------------------------|---------------------------------------------|
-| Acessar Página Inicial                    | Requisição do usuário                         | Página inicial carregada                    |
-| Verificar Base de Dados dos Posts        | Solicitação de análise                        | Dados dos posts disponíveis                 |
-| Ordenar Posts por Número de Curtidas     | Posts com quantidade de curtidas              | Posts ordenados por popularidade            |
-| Selecionar os Mais Curtidos (top 3)      | Lista de posts ordenados                      | Top 3 posts selecionados                    |
-| Atualizar Lista de Destaque              | Top 3 posts mais curtidos                     | Lista de destaque atualizada                |
-| Exibir Posts em Destaque ao Usuário      | Lista de destaque                             | Posts visíveis ao usuário na página inicial |
-| Visualizar os Posts Mais Curtidos        | Página inicial com destaques                  | Posts visualizados pelo usuário             |
-| Interagir com os Posts                   | Posts visualizados                            | Curtidas, comentários ou compartilhamentos  |
 
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
