@@ -101,12 +101,11 @@ Fluxo do Processo:
 | Enviar Notificação ao Usuário      | Alerta de consumo anormal                                 | Notificação via e-mail ou push                 |
 | Armazenar Dados                    | Dados normalizados                                        | Histórico para relatórios futuros              |
 
-### Processo 2: Notificação Inteligente e Ações Corretivas
+### Processo 2: Pesquisar Eletrodoméstico
 participantes: Sistema e usuário.
 
-Este processo assegura que os usuários recebam alertas automáticos sempre que houver consumo excessivo ou incomum, além de fornecer sugestões para economia.
-Fluxo do Processo:
-![Diagrama2](https://github.com/user-attachments/assets/3616d312-f5db-46a1-abb1-d314d788df63)
+O sistema permite que o usuário utilize uma calculadora de consumo energético e pesquise eletrodomésticos com base em critérios inseridos manualmente. Após a busca, o sistema consulta o banco de dados e retorna os resultados encontrados, que são então exibidos para o usuário de forma simples e acessível.:
+[Uploading diagramEletrodomestico.bpmn…]()
 
 | **Processo**                         | **Entradas**                            | **Saídas**                                      |
 |-------------------------------------|-----------------------------------------|-------------------------------------------------|
