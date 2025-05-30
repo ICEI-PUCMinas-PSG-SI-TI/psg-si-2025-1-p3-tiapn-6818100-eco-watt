@@ -102,7 +102,7 @@ Este processo automatiza o cadastro de novos usuários no sistema, desde o acess
 
 
 
-### Processo 2: Loguin de Cadastro
+### Processo 2: Login de Cadastro
 Participantes: Usuário e Sistema.
 
 O sistema permite que usuários façam login ou criem uma conta. Ele valida as credenciais informadas e, caso estejam corretas, concede acesso ao sistema. Se os dados forem inválidos, exibe mensagens de erro apropriadas. No caso de cadastro, o sistema valida os dados inseridos e cria a conta, permitindo o acesso logo em seguida.
