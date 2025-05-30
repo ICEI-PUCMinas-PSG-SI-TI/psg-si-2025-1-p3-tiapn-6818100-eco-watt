@@ -137,6 +137,7 @@ Participantes: Sistema e usuário.
 
 Este processo tem como objetivo permitir o usuario a realizar remoção de post. O sistema valida o post escolhido para deletar e remove o registro no banco de dados. 
 Fluxo do Processo:
+
 ![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/457c7a03bd5bf30a245c7b0e14e70172dab0afac/docs/images/processso4.jpg)
 
 ### Processo 5: Gerar histórico de usuário 
