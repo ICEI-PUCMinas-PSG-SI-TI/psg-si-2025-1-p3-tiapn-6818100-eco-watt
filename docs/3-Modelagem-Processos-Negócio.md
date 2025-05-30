@@ -128,7 +128,8 @@ Fluxo do Processo:
 ### Processo 3: Cadastro de post
 participantes: Sistema e usuário.
 
-Este processo tem como objetivo 
+Este processo tem como objetivo permitir o usuario a relizar cadastro de post. Ele valida informações do post inserida pelo usuario e salva os dados do post no banco de dados. 
+
 ![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/f90e36bf0c661e706570ada5819d2113eff18318/docs/images/processo3.jpg)
 
 ### Processo 4: Deleção de post
