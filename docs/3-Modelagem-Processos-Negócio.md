@@ -84,6 +84,8 @@ Limitações da Solução
 
 ### Processo 1: Cadastro de usuários
 
+Este processo automatiza o cadastro de novos usuários no sistema, desde o acesso ao formulário até a criação da conta e redirecionamento para a página de login. O usuário preenche seus dados, o sistema valida as informações, persiste o registro e fornece feedback imediato sobre sucesso ou erro.
+
 ![image](https://github.com/user-attachments/assets/3713b8de-3bb5-4254-9a20-43d7d9ddaa6e)
 
 | **Processo**                | **Entradas**                                       | **Saídas**                                             |
