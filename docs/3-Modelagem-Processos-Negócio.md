@@ -102,24 +102,28 @@ Este processo automatiza o cadastro de novos usuários no sistema, desde o acess
 
 
 
-### Processo 2: Coleta e Análise de Consumo
-Participantes: Usuário e Fluxogama Funcional.
+### Processo 2: Loguin de Cadastro
+Participantes: Usuário e Sistema.
 
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
-Fluxo do Processo: 
-![Captura de tela Imagem digrama1](https://github.com/user-attachments/assets/4110bd37-5ed9-4c64-92d7-a4a44efd1b90)
 
-| **Processo**                        | **Entradas**                                              | **Saídas**                                      |
-|------------------------------------|-----------------------------------------------------------|-------------------------------------------------|
-| Acessar Ferramenta                 | Login (e-mail), Senha                                     | Acesso à ferramenta / Cadastro de novo usuário |
-| Informar Dados de Consumo          | Consumo atual, Período selecionado                        | Dados enviados para o sistema                  |
-| Receber os Dados                   | JSON de consumo enviado                                   | Dados validados                                |
-| Enviar para o Banco de Dados       | Dados validados                                           | Dados salvos no banco de dados                 |
-| Processar Informações de Consumo   | Dados salvos                                              | Dados normalizados e média mensal              |
-| Analisar Padrões de Consumo        | Dados processados                                         | Detecção de padrões / desvios                  |
-| Decisão: Consumo Anormal Detectado?| Dados comparados com média                                | (Sim) → alerta gerado / (Não) → histórico salvo|
-| Enviar Notificação ao Usuário      | Alerta de consumo anormal                                 | Notificação via e-mail ou push                 |
-| Armazenar Dados                    | Dados normalizados                                        | Histórico para relatórios futuros              |
+Fluxo do Processo: 
+![image](https://github.com/user-attachments/assets/36e22971-94a6-4068-872c-875910389d5c)
+
+
+| **Processo**              | **Entradas**                       | **Saídas**                       |
+| ------------------------- | ---------------------------------- | -------------------------------- |
+| Inserir login e senha     | Dados do usuário                   | Credenciais inseridas            |
+| Já tem conta?             | Credenciais inseridas              | Escolha entre login ou cadastro  |
+| Validar Credenciais       | Dados do login                     | Login válido ou inválido         |
+| Exibir erro de login      | Credenciais inválidas              | Mensagem de erro exibida         |
+| Acessar sistema           | Login ou cadastro bem-sucedido     | Usuário dentro do sistema        |
+| Preencher cadastro        | Dados pessoais do usuário          | Formulário preenchido            |
+| Validar dados de cadastro | Formulário preenchido              | Dados válidos ou inválidos       |
+| Exibir erro de cadastro   | Dados inválidos                    | Mensagem de erro                 |
+| Criar conta               | Dados válidos                      | Conta criada                     |
+| Credenciais válidas?      | Resultado da validação de login    | Direciona para acesso ou erro    |
+| Dados válidos?            | Resultado da validação de cadastro | Conta criada ou exibição de erro |
 
 
 ### Processo 3: Gerar histórico de usuário 
