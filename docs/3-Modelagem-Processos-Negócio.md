@@ -125,14 +125,14 @@ Fluxo do Processo:
 | Credenciais válidas?      | Resultado da validação de login    | Direciona para acesso ou erro    |
 | Dados válidos?            | Resultado da validação de cadastro | Conta criada ou exibição de erro |
 
-### Processo 3: Cadastro de post
+### Processo 3: Cadastrar post
 Participantes: Sistema e usuário.
 
 Este processo tem como objetivo permitir o usuario a relizar cadastro de post. O sistema valida informações do post inserida pelo usuario e salva os dados do post no banco de dados. 
 
 ![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/f90e36bf0c661e706570ada5819d2113eff18318/docs/images/processo3.jpg)
 
-### Processo 4: Deleção de post
+### Processo 4: Deletar post
 Participantes: Sistema e usuário.
 
 Este processo tem como objetivo permitir o usuario a realizar remoção de post. O sistema valida o post escolhido para deletar e remove o registro no banco de dados. 
