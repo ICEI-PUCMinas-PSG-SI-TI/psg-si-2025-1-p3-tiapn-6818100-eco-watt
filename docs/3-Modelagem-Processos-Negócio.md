@@ -129,7 +129,7 @@ Fluxo do Processo:
 participantes: Sistema e usuário.
 
 Este processo tem como objetivo 
-![diagrama4](https://github.com/user-attachments/assets/6b69d933-aa4d-4037-9af9-caf9b32e8615)
+![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/f90e36bf0c661e706570ada5819d2113eff18318/docs/images/processo3.jpg)
 
 ### Processo 4: Deleção de post
 participantes: Sistema e usuário.
