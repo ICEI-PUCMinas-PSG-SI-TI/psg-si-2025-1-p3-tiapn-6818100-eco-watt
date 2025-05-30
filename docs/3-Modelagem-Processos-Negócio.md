@@ -82,7 +82,25 @@ Limitações da Solução
 
 # 3.3. Modelagem dos processos
 
-### Processo 1: Coleta e Análise de Consumo
+### Processo 1: Cadastro de usuários
+
+![image](https://github.com/user-attachments/assets/3713b8de-3bb5-4254-9a20-43d7d9ddaa6e)
+
+| **Processo**                | **Entradas**                                       | **Saídas**                                             |
+|----------------------------|----------------------------------------------------|--------------------------------------------------------|
+| Acessar página de cadastro | URL da aplicação                                   | Formulário de cadastro exibido                        |
+| Preencher formulário       | Nome completo, E-mail, Senha, Confirmação de senha | Dados do formulário prontos para envio               |
+| Enviar dados para o sistema| Dados do formulário                                | Requisição de cadastro enviada                        |
+| Validar dados              | Dados do formulário                                | **Se válidos:** objeto DTO de usuário<br>**Se inválidos:** lista de erros de validação |
+| Decisão: dados válidos?    | Resultado da validação                             | Fluxo "válido" ou "inválido"                          |
+| Criar conta no banco de dados | DTO de usuário válido                           | Registro de usuário criado no BD                     |
+| Reportar erro de validação | Lista de erros de validação                        | Mensagem de erro formatada para o usuário            |
+| Redirecionar para página de login | Usuário criado com sucesso                  | Página de login exibida e toast "Cadastro realizado" |
+| Armazenar log de auditoria | Evento de cadastro (sucesso/erro)                  | Entrada de log no sistema (audit trail)              |
+
+
+
+### Processo 2: Coleta e Análise de Consumo
 Participantes: Usuário e Fluxogama Funcional.
 
 Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
@@ -101,27 +119,6 @@ Fluxo do Processo:
 | Enviar Notificação ao Usuário      | Alerta de consumo anormal                                 | Notificação via e-mail ou push                 |
 | Armazenar Dados                    | Dados normalizados                                        | Histórico para relatórios futuros              |
 
-### Processo 2: Cadastro de Usuario
-participantes: Sistema e usuário.
-
-O sistema permite que usuários façam login ou criem uma conta. Ele valida as credenciais informadas e, caso estejam corretas, concede acesso ao sistema. Se os dados forem inválidos, exibe mensagens de erro apropriadas. No caso de cadastro, o sistema valida os dados inseridos e cria a conta, permitindo o acesso logo em seguida.
-
-Fluxo do Processo:
-![image](https://github.com/user-attachments/assets/4e3a5f69-c184-4dd4-b34e-0386e8de34f0)
-
-| **Processo**              | **Entradas**                       | **Saídas**                       |
-| ------------------------- | ---------------------------------- | -------------------------------- |
-| Inserir login e senha     | Dados do usuário                   | Credenciais inseridas            |
-| Já tem conta?             | Credenciais inseridas              | Escolha entre login ou cadastro  |
-| Validar Credenciais       | Dados do login                     | Login válido ou inválido         |
-| Exibir erro de login      | Credenciais inválidas              | Mensagem de erro exibida         |
-| Acessar sistema           | Login ou cadastro bem-sucedido     | Usuário dentro do sistema        |
-| Preencher cadastro        | Dados pessoais do usuário          | Formulário preenchido            |
-| Validar dados de cadastro | Formulário preenchido              | Dados válidos ou inválidos       |
-| Exibir erro de cadastro   | Dados inválidos                    | Mensagem de erro                 |
-| Criar conta               | Dados válidos                      | Conta criada                     |
-| Credenciais válidas?      | Resultado da validação de login    | Direciona para acesso ou erro    |
-| Dados válidos?            | Resultado da validação de cadastro | Conta criada ou exibição de erro |
 
 ### Processo 3: Gerar histórico de usuário 
 participantes: Sistema e usuário.
