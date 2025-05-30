@@ -125,8 +125,20 @@ Fluxo do Processo:
 | Credenciais válidas?      | Resultado da validação de login    | Direciona para acesso ou erro    |
 | Dados válidos?            | Resultado da validação de cadastro | Conta criada ou exibição de erro |
 
+### Processo 3: Cadastro de post
+participantes: Sistema e usuário.
 
-### Processo 3: Gerar histórico de usuário 
+Este processo tem como objetivo 
+![diagrama4](https://github.com/user-attachments/assets/6b69d933-aa4d-4037-9af9-caf9b32e8615)
+
+### Processo 4: Deleção de post
+participantes: Sistema e usuário.
+
+Este processo tem como objetivo monitorar automaticamente os dados de consumo dos usuários, identificar padrões de consumo excessivo ou incomum, e notificar os usuários com alertas e sugestões de economia. Além disso, o sistema mantém um histórico das interações e decisões do usuário, permitindo o acompanhamento de melhorias e ajustes no consumo ao longo do tempo.
+Fluxo do Processo:
+![diagrama3](https://github.com/user-attachments/assets/6b69d933-aa4d-4037-9af9-caf9b32e8615)
+
+### Processo 5: Gerar histórico de usuário 
 participantes: Sistema e usuário.
 
 Este processo tem como objetivo monitorar automaticamente os dados de consumo dos usuários, identificar padrões de consumo excessivo ou incomum, e notificar os usuários com alertas e sugestões de economia. Além disso, o sistema mantém um histórico das interações e decisões do usuário, permitindo o acompanhamento de melhorias e ajustes no consumo ao longo do tempo.
@@ -151,7 +163,7 @@ Fluxo do Processo:
 | Registrar sugestão aplicada             | Ação do usuário (aplicar sugestão)           | Sugestão registrada no histórico                    |
 | Registrar visualização do alerta       | Ação do usuário (visualização sem ação)      | Visualização registrada no histórico                |
 
-### Processo 4: Pesquisar Eletrodoméstico
+### Processo 6: Pesquisar Eletrodoméstico
 Participantes: Sistema e Usuário
 
 O sistema permite que o usuário utilize uma calculadora de consumo energético e pesquise eletrodomésticos com base em critérios inseridos manualmente. Após a busca, o sistema consulta o banco de dados e retorna os resultados encontrados, que são então exibidos para o usuário de forma simples e acessível:
