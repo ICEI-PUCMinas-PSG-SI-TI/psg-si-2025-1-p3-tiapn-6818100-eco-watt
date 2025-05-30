@@ -126,18 +126,18 @@ Fluxo do Processo:
 | Dados válidos?            | Resultado da validação de cadastro | Conta criada ou exibição de erro |
 
 ### Processo 3: Cadastro de post
-participantes: Sistema e usuário.
+Participantes: Sistema e usuário.
 
-Este processo tem como objetivo permitir o usuario a relizar cadastro de post. Ele valida informações do post inserida pelo usuario e salva os dados do post no banco de dados. 
+Este processo tem como objetivo permitir o usuario a relizar cadastro de post. O sistema valida informações do post inserida pelo usuario e salva os dados do post no banco de dados. 
 
 ![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/f90e36bf0c661e706570ada5819d2113eff18318/docs/images/processo3.jpg)
 
 ### Processo 4: Deleção de post
-participantes: Sistema e usuário.
+Participantes: Sistema e usuário.
 
-Este processo tem como objetivo monitorar automaticamente os dados de consumo dos usuários, identificar padrões de consumo excessivo ou incomum, e notificar os usuários com alertas e sugestões de economia. Além disso, o sistema mantém um histórico das interações e decisões do usuário, permitindo o acompanhamento de melhorias e ajustes no consumo ao longo do tempo.
+Este processo tem como objetivo permitir o usuario a realizar remoção de post. O sistema valida o post escolhido para deletar e remove o registro no banco de dados. 
 Fluxo do Processo:
-![diagrama3](https://github.com/user-attachments/assets/6b69d933-aa4d-4037-9af9-caf9b32e8615)
+![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/457c7a03bd5bf30a245c7b0e14e70172dab0afac/docs/images/processso4.jpg)
 
 ### Processo 5: Gerar histórico de usuário 
 participantes: Sistema e usuário.
