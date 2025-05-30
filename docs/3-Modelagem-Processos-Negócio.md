@@ -105,7 +105,7 @@ Este processo automatiza o cadastro de novos usuários no sistema, desde o acess
 ### Processo 2: Loguin de Cadastro
 Participantes: Usuário e Sistema.
 
-Este processo automatiza a coleta de dados dos medidores inteligentes e sua análise em tempo real. O sistema detecta padrões de consumo e gera alertas para ajudar os usuários a otimizarem seu uso de energia.
+O sistema permite que usuários façam login ou criem uma conta. Ele valida as credenciais informadas e, caso estejam corretas, concede acesso ao sistema. Se os dados forem inválidos, exibe mensagens de erro apropriadas. No caso de cadastro, o sistema valida os dados inseridos e cria a conta, permitindo o acesso logo em seguida.
 
 Fluxo do Processo: 
 ![image](https://github.com/user-attachments/assets/36e22971-94a6-4068-872c-875910389d5c)
