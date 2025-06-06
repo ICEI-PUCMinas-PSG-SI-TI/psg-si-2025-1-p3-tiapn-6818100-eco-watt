@@ -8,76 +8,97 @@ A proposta combina automação, usabilidade e inteligência de dados para transf
 
 
 
-| Processo                  | Entradas                              | Saídas                                   |
-|---------------------------|---------------------------------------|------------------------------------------|
-| Coleta de Dados           | Leituras dos medidores inteligentes   | Dados armazenados no banco de dados      |
-| Análise de Consumo        | Dados coletados                       | Padrões detectados, alertas gerados      |
-| Notificação ao Usuário    | Alertas gerados                       | Mensagens enviadas (SMS, e-mail, app)    |
-| Geração de Relatórios     | Dados históricos de consumo           | Relatórios acessíveis via sistema        |
-| Cadastro de Eletrodomésticos | Dados do aparelho (potência, uso)  | Estimativas de consumo por dispositivo   |
-| Cadastro do Fórum         | Postagens e interações dos usuários   | Banco de conhecimento compartilhado      |
-| Cadastro de Dicas         | Dicas personalizadas                  | Recomendações para redução de consumo    |
+| Processo                        | Entradas                                      | Saídas                                          |
+|---------------------------------|-----------------------------------------------|-------------------------------------------------|
+| Coleta de Dados                 | Leituras dos medidores inteligentes           | Dados armazenados no banco de dados             |
+| Análise de Consumo              | Dados coletados                               | Padrões detectados, alertas gerados             |
+| Notificação ao Usuário          | Alertas gerados                               | Mensagens enviadas (SMS, e-mail, app)           |
+| Geração de Relatórios           | Comentários dos usuários no fórum             | Relatórios de interações (histórico de posts)   |
+| Pesquisa de Eletrodomésticos    | Nome do eletrodoméstico informado pelo usuário| Sugestão sustentável exibida                    |
+| Postagem no Fórum               | Conteúdo inserido pelo usuário                | Post armazenado e exibido no fórum              |
 
-Localização dos Processos Na Residência:** Medidor inteligente coleta e transmite dados.No Servidor na Nuvem: Sistema processa dados, identifica padrões e gera relatórios. No App/Site do Usuário:** Acesso a consumo, alertas, fórum e dicas.No Painel do Administrador: Equipes de suporte gerenciam dispositivos e monitoram desempenho.
-Participantes do Processo Medidores Inteligentes: Coletam dados de consumo.Sistema de Monitoramento:** Processa informações e gera insights. Usuários: Cadastram eletrodomésticos, interagem no fórum e recebem dicas. Equipe Técnica: Mantém dispositivos e servidores. Administradores: Supervisionam desempenho e gerenciam acessos.
 
-Produtos de Informação Relatórios de Consumo: Histórico detalhado com gráficos e comparações. Alertas de Consumo Elevado: Notificações em tempo real. Relatórios Técnicos: Logs de funcionamento do sistema. Relatórios de Gestão:** Dados analíticos para otimização energética. Dicas Personalizadas:** Sugestões baseadas no perfil de consumo.
+**Localização dos Processos**
 
-Conexão com a Arquitetura do Software - Usuários e Permissões:** Perfis diferenciados (morador, administrador, técnico).
-Banco de Dados: Estrutura ampliada para suportar novos recursos: - Tabela Eletrodomésticos (id, usuário_id, nome, potência, tempo_uso) - Tabela Fórum (id, usuário_id, postagem, data) - Tabela Dicas (id, categoria, conteúdo) - Tabela Usuários (id, nome, e-mail, tipo) - Tabela Medidores (id, residência, status) - Tabela Registros de Consumo (medidor_id, timestamp, consumo) - Tabela Alertas (usuário_id, tipo, data) - Tabela Relatórios (usuário_id, período, dados)
+- **Na Residência:** Medidor inteligente coleta e transmite dados.
+- **No Servidor na Nuvem:** Sistema processa os dados recebidos dos medidores e identifica padrões.
+- **No App/Site do Usuário:** Acesso a dados de consumo, alertas, fórum de discussões e sugestões sustentáveis.
+- **No Painel do Administrador:** Equipes de suporte monitoram o desempenho do sistema e interações dos usuários.
 
-# 3.1. Modelagem da situação atual (Modelagem AS IS)
-Atualmente, muitas pessoas enfrentam problemas com contas de luz elevadas, o que representa um grande impacto financeiro, principalmente em residências que possuem um uso descontrolado de energia. Isso acontece por diversas razões:
- 
- Falta de Informação Clara
- Muitas vezes, os usuários não têm uma visão detalhada e compreensível do seu consumo de energia. As informações fornecidas pelas distribuidoras de energia são, em geral, complexas e difíceis de interpretar, o que gera desconhecimento sobre o consumo real.
- 
- Dificuldade de Identificação de Padrões de Consumo
- O consumo de energia muitas vezes é afetado por práticas diárias que podem ser difíceis de identificar sem uma análise detalhada. Lâmpadas deixadas acesas, aparelhos em stand-by ou uso excessivo de aquecedores são exemplos de fatores que podem aumentar a conta de luz, 
- mas que muitas pessoas não percebem no dia a dia.
- 
- Processos Manuais e Fragmentados
- Em muitos casos, os consumidores tentam monitorar o consumo de energia por conta própria, seja com anotações manuais ou por meio de ferramentas complicadas. Isso gera retrabalho, erros de cálculo e confusão.
- 
- Falta de Ações Corretivas
- Sem uma ferramenta clara e acessível para identificar o consumo elevado, muitos consumidores não conseguem tomar ações corretivas a tempo. Isso resulta em alta frequência de contas de energia elevadas, o que afeta o orçamento doméstico e impacta negativamente o meio 
- ambiente devido ao consumo excessivo.
- 
- Problemas Identificados
- Os principais problemas associados a esse cenário são:
- Desconhecimento do Consumo Real: O consumidor muitas vezes não tem uma visão clara de quando ou por que está gastando mais energia. Dificuldade de Ação: A falta de ferramentas fáceis de usar impede que os consumidores tomem decisões rápidas para reduzir o consumo, como desligar aparelhos quando não estão em uso. Impacto Econômico e Ambiental: O consumo elevado de energia não só resulta em contas altas, mas também contribui para maiores emissões de CO2, impactando negativamente o meio ambiente.
- 
-Solução Proposta com a Automação
- O uso de nosso aplicativo de monitoramento de consumo de energia propõe uma solução simples, intuitiva e eficiente para resolver esses problemas:
- Interface Simples e Acessível
- 
- Solução**: O aplicativo oferece uma interface amigável e de fácil compreensão, com linguagem clara e simples, ideal até mesmo para idosos.
- Benefício**: Com isso, qualquer usuário, independentemente da idade, poderá compreender seu consumo de energia e tomar decisões informadas para reduzi-lo.
- 
- Monitoramento em Tempo Real
- Solução: O sistema irá monitorar o consumo de energia em tempo real, identificando o gasto energético de cada aparelho individualmente e fornecendo dados atualizados sobre o consumo diário e mensal de cada dispositivo. Benefício: Os usuários terão uma visão 
- instantânea e precisa do que estão gastando, permitindo que tomem ações corretivas imediatas (como desligar aparelhos ou otimizar o uso de energia).
- 
- Alertas e Recomendações Personalizadas
- Solução: O aplicativo enviará alertas automáticos caso o consumo ultrapasse um limite preestabelecido ou se identificar padrões de consumo elevados.Benefício**: Os usuários receberão alertas de como reduzir o consumo de energia.
- 
- Relatórios Simples e Visuais
- Solução: O sistema gerará relatórios visuais e fáceis de entender, com gráficos simples que mostram o histórico de consumo.
- Benefício**: Esses relatórios permitem que os usuários vejam claramente a diferença de consumo de um aparelho para o outro.
+**Participantes do Processo**
 
-# 3.2. Descrição geral da proposta (Modelagem TO BE)
-A solução proposta busca otimizar o monitoramento do consumo de energia por meio intelignte. Com a introdução de um sistema digital integrado, os usuários terão acesso a dados em tempo real, notificações personalizadas e insights para reduzir desperdícios.
+- **Medidores Inteligentes:** Coletam e transmitem dados de consumo energético.
+- **Sistema de Monitoramento:** Processa os dados coletados e identifica comportamentos de uso.
+- **Usuários:** Acessam alertas, interagem no fórum e recebem sugestões sustentáveis ao pesquisar eletrodomésticos.
+- **Equipe Técnica:** Realiza a manutenção do sistema e infraestrutura.
+- **Administradores:** Supervisionam a plataforma e o uso do sistema pelos usuários.
 
- Alinhamento com a Estratégia e Objetivos do Negócio
-- Eficiência Energética: Permitir que os usuários identifiquem desperdícios e otimizem o uso de eletricidade.
-- Acessibilidade e Usabilidade: Interface intuitiva, fácil de interpretar e adaptável para diferentes perfis de usuários.
-- Automação de Processos: Redução da necessidade de monitoramento manual, tornando o acompanhamento do consumo mais preciso.
-- Sustentabilidade: Incentivo a práticas mais ecológicas por meio de recomendações inteligentes.
+**Produtos de Informação**
 
-Limitações da Solução
-- Dependência de Hardware: Necessário o uso de medidores inteligentes compatíveis.
-- Conectividade: O funcionamento em tempo real depende de conexão estável com a internet.
-- Adoção pelo Usuário: Alguns usuários podem ter dificuldades na adaptação a novas tecnologias.
+- **Alertas de Consumo Elevado:** Notificações enviadas quando padrões de uso incomuns são detectados.
+- **Relatórios de Interação no Fórum:** Histórico de postagens feitas pelos usuários.
+- **Sugestões Sustentáveis:** Dicas exibidas ao pesquisar eletrodomésticos, com foco na redução de consumo.
+
+**Conexão com a Arquitetura do Software**
+
+- **Usuários e Permissões:** Perfis diferenciados para morador, administrador e técnico.
+- **Banco de Dados:** Estrutura otimizada para suportar os recursos atuais:
+
+  - **Tabela Fórum:** (id, usuário_id, postagem, data)
+  - **Tabela Dicas:** (id, eletrodomestico_nome, conteúdo)
+  - **Tabela Usuários:** (id, nome, e-mail, tipo)
+  - **Tabela Medidores:** (id, residência, status)
+  - **Tabela Registros de Consumo:** (medidor_id, timestamp, consumo)
+  - **Tabela Alertas:** (usuário_id, tipo, data)
+
+
+# 3.1. Modelagem da Situação Atual (Modelagem AS IS)
+
+Atualmente, muitas pessoas enfrentam problemas com contas de luz elevadas, o que representa um grande impacto financeiro, principalmente em residências com uso descontrolado de energia. Isso ocorre por diversos fatores:
+
+**Falta de Informação Clara**  
+Os usuários muitas vezes não têm uma visão detalhada e compreensível do próprio consumo de energia. As informações fornecidas pelas distribuidoras costumam ser técnicas e de difícil interpretação, gerando desconhecimento sobre o consumo real.
+
+**Dificuldade de Identificação de Padrões de Consumo**  
+Práticas diárias como deixar luzes acesas, manter aparelhos em stand-by ou usar aquecedores excessivamente podem elevar o consumo, mas muitas vezes passam despercebidas pelos usuários.
+
+**Processos Manuais e Fragmentados**  
+Muitos consumidores tentam monitorar o consumo por conta própria, utilizando anotações ou ferramentas complicadas. Isso leva a retrabalho, erros de cálculo e confusão.
+
+**Falta de Ações Corretivas**  
+Sem uma ferramenta clara e acessível para visualizar excessos de consumo, os usuários têm dificuldade para tomar decisões corretivas a tempo. Isso gera contas mais altas e maior impacto ambiental.
+
+**Problemas Identificados**  
+- **Desconhecimento do Consumo Real:** Falta de clareza sobre quando e por que o consumo aumenta.  
+- **Dificuldade de Ação:** A ausência de ferramentas simples impede decisões rápidas, como desligar aparelhos não utilizados.  
+- **Impacto Econômico e Ambiental:** O consumo elevado afeta o orçamento e contribui para maiores emissões de CO₂.
+
+---
+
+# 3.2. Descrição Geral da Proposta (Modelagem TO BE)
+
+A solução proposta visa otimizar o acompanhamento do consumo de energia por meio de um sistema digital acessível, que permite aos usuários monitorar dados, visualizar alertas e obter sugestões sustentáveis para melhorar seu uso de eletricidade.
+
+**Alinhamento com a Estratégia e Objetivos do Negócio**
+
+- **Eficiência Energética:** Apoiar os usuários na identificação de desperdícios e incentivar hábitos de consumo mais conscientes.
+- **Acessibilidade e Usabilidade:** Interface amigável e de fácil navegação, adequada para diferentes perfis de usuários.
+- **Automação de Processos:** Eliminação de controles manuais, com uso de sensores e registros automáticos no sistema.
+- **Sustentabilidade:** Encorajamento ao consumo responsável, com sugestões sustentáveis associadas aos eletrodomésticos pesquisados.
+
+**Principais Funcionalidades da Solução**
+
+- **Interface Simples e Acessível:** Apresenta informações de forma clara, com linguagem acessível para todos os públicos, inclusive idosos.
+- **Monitoramento de Consumo:** Utiliza medidores inteligentes para registrar o consumo e identificar padrões gerais de uso ao longo do tempo.
+- **Sugestões Sustentáveis:** Ao pesquisar eletrodomésticos, o sistema exibe dicas ecológicas relacionadas ao tipo de aparelho buscado.
+- **Histórico de Interações:** O sistema armazena registros de ações do usuário, como postagens no fórum e visualizações de sugestões, permitindo acompanhar seu comportamento ao longo do tempo.
+
+**Limitações da Solução**
+
+- **Dependência de Hardware:** É necessário utilizar medidores inteligentes compatíveis com o sistema.
+- **Conectividade:** O funcionamento pleno depende de uma conexão de internet estável.
+- **Adoção pelo Usuário:** Pode haver resistência inicial de usuários que não estão familiarizados com tecnologias digitais.
+
 
 
 # 3.3. Modelagem dos processos
