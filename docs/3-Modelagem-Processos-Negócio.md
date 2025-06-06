@@ -20,10 +20,9 @@ A proposta combina automação, usabilidade e inteligência de dados para transf
 
 **Localização dos Processos**
 
-- **Na Residência:** Medidor inteligente coleta e transmite dados.
-- **No Servidor na Nuvem:** Sistema processa os dados recebidos dos medidores e identifica padrões.
-- **No App/Site do Usuário:** Acesso a dados de consumo, alertas, fórum de discussões e sugestões sustentáveis.
-- **No Painel do Administrador:** Equipes de suporte monitoram o desempenho do sistema e interações dos usuários.
+- **No Servidor na Nuvem:** O sistema processa as pesquisas feitas pelos usuários e gerencia os dados do site.
+- **No App/Site do Usuário:** O usuário realiza pesquisas de eletrodomésticos, recebe sugestões sustentáveis e interage no fórum.
+- **No Painel do Administrador:** Equipes de suporte monitoram as interações dos usuários e mantêm a plataforma.
 
 **Participantes do Processo**
 
