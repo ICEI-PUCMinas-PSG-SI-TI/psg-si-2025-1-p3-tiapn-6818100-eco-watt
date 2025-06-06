@@ -26,7 +26,6 @@ A proposta combina automação, usabilidade e inteligência de dados para transf
 
 **Participantes do Processo**
 
-- **Medidores Inteligentes:** Coletam e transmitem dados de consumo energético.
 - **Sistema de Monitoramento:** Processa os dados coletados e identifica comportamentos de uso.
 - **Usuários:** Acessam alertas, interagem no fórum e recebem sugestões sustentáveis ao pesquisar eletrodomésticos.
 - **Equipe Técnica:** Realiza a manutenção do sistema e infraestrutura.
