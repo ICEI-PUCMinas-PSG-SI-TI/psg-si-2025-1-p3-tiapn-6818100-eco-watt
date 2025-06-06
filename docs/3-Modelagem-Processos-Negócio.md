@@ -187,3 +187,17 @@ Fluxo do Processo:
 ### Oportunidades de Melhoria
 - Personalização dos alertas com base no perfil do usuário.
 - Automação de resposta, permitindo desligamento remoto de dispositivos.
+
+- ### Processo 7: Avaliar sugestão enviada
+
+- O sistema permite que o usuário avalie as sugestões de eletrodomésticos exibidas após a pesquisa, utilizando um sistema de pontuação com estrelas. Essa interface de avaliação é apresentada logo após a exibição dos resultados, oferecendo uma forma simples e direta de expressar a satisfação com a sugestão feita. Após a avaliação, a pontuação é armazenada automaticamente no banco de dados, permitindo que o sistema aprenda com as preferências dos usuários e melhore a qualidade das próximas sugestões.
+
+-![Screenshot_1](https://github.com/user-attachments/assets/06faaf9f-289b-4b79-8f76-653cd522979a)
+
+| Processo                             | Entradas                      | Saídas                                     |
+|--------------------------------------|-------------------------------|--------------------------------------------|
+| Exibir estrelas para votação         | Resultados da busca           | Interface de avaliação exibida             |
+| Avaliar sugestão dada pelo sistema   | Interface de avaliação        | Avaliação preenchida                       |
+| Armazenar avaliação no banco de dados| Avaliação preenchida          | Avaliação armazenada no banco de dados     |
+
+
