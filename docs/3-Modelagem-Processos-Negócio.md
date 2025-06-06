@@ -1,12 +1,12 @@
 # 3. Modelagem dos Processos de Negócio
 
 Introdução
-Com o aumento do consumo energético e a busca por eficiência no uso da eletricidade, o monitoramento inteligente de energia se torna essencial para usuários residenciais. Nosso sistema foi desenvolvido para oferecer uma visão clara e detalhada do consumo, permitindo identificar padrões, reduzir gastos e detectar anomalias. A solução é estruturada em três categorias de processos: primários, de suporte e gerenciais, com melhorias nos fluxos de cadastro, análise e geração de relatórios.
 
-Processos Primários são coleta de Dados do Consumo, Análise de Consumo, Notificação ao Usuário, Geração de Relatórios
-Processos de Suporte são Gerenciamento de Dispositivos, Gestão de Usuários, Infraestrutura de TI, Cadastro de Eletrodomésticos, Cadastro do Fórum, Cadastro de Dicas
-Processos Gerenciais, Monitoramento da Qualidade do Serviço, Gestão de Anomalias, Auditoria e Relatórios Gerenciais
-Entradas e Saídas dos Processos
+Com o crescimento das preocupações com eficiência energética e sustentabilidade, o uso de soluções digitais para monitoramento do consumo tornou-se uma prioridade. O sistema EcoWatt foi desenvolvido para oferecer aos usuários uma plataforma intuitiva e acessível que permite acompanhar o uso de energia, identificar eletrodomésticos mais eficientes, interagir com uma comunidade de dicas e registrar suas próprias experiências.
+
+A proposta combina automação, usabilidade e inteligência de dados para transformar a relação dos usuários com o consumo de energia elétrica. O sistema oferece funcionalidades como calculadora de consumo, pesquisa e sugestão de eletrodomésticos, avaliação de recomendações, fórum colaborativo, e monitoramento com geração de alertas e histórico de uso.
+
+
 
 | Processo                  | Entradas                              | Saídas                                   |
 |---------------------------|---------------------------------------|------------------------------------------|
@@ -82,7 +82,7 @@ Limitações da Solução
 
 # 3.3. Modelagem dos processos
 
-### Processo 1: Cadastro de usuários
+### Processo 1: Cadastrar usuário
 
 Este processo automatiza o cadastro de novos usuários no sistema, desde o acesso ao formulário até a criação da conta e redirecionamento para a página de login. O usuário preenche seus dados, o sistema valida as informações, persiste o registro e fornece feedback imediato sobre sucesso ou erro.
 
@@ -102,7 +102,7 @@ Este processo automatiza o cadastro de novos usuários no sistema, desde o acess
 
 
 
-### Processo 2: Login de Cadastro
+### Processo 2: Fazer login
 Participantes: Usuário e Sistema.
 
 O sistema permite que usuários façam login ou criem uma conta. Ele valida as credenciais informadas e, caso estejam corretas, concede acesso ao sistema. Se os dados forem inválidos, exibe mensagens de erro apropriadas. No caso de cadastro, o sistema valida os dados inseridos e cria a conta, permitindo o acesso logo em seguida.
@@ -140,7 +140,7 @@ Fluxo do Processo:
 
 ![diagrama3](https://github.com/ICEI-PUCMinas-PSG-SI-TI/psg-si-2025-1-p3-tiapn-6818100-eco-watt/blob/457c7a03bd5bf30a245c7b0e14e70172dab0afac/docs/images/processso4.jpg)
 
-### Processo 5: Gerar histórico de usuário 
+### Processo 5: Gerar histórico de comentários  
 participantes: Sistema e usuário.
 
 Este processo tem como objetivo monitorar automaticamente os dados de consumo dos usuários, identificar padrões de consumo excessivo ou incomum, e notificar os usuários com alertas e sugestões de economia. Além disso, o sistema mantém um histórico das interações e decisões do usuário, permitindo o acompanhamento de melhorias e ajustes no consumo ao longo do tempo.
@@ -188,7 +188,7 @@ Fluxo do Processo:
 - Personalização dos alertas com base no perfil do usuário.
 - Automação de resposta, permitindo desligamento remoto de dispositivos.
 
- ### Processo 7: Avaliar sugestão enviada
+ ### Processo 7: Avaliar sugestões de eletrodomésticos
 
  O sistema permite que o usuário avalie as sugestões de eletrodomésticos exibidas após a pesquisa, utilizando um sistema de pontuação com estrelas. Essa interface de avaliação é apresentada logo após a exibição dos resultados, oferecendo uma forma simples e direta de expressar a satisfação com a sugestão feita. Após a avaliação, a pontuação é armazenada automaticamente no banco de dados, permitindo que o sistema aprenda com as preferências dos usuários e melhore a qualidade das próximas sugestões.
 
