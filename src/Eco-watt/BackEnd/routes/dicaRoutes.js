@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const dicaController = require('../controllers/dicaController');
 
-// ainda sem rotas
+router.get('/', dicaController.getAllDicas);
+router.get('/:id', dicaController.getDicaById);
+router.post('/', dicaController.createDica);
+router.put('/:id', dicaController.updateDica);
+router.delete('/:id', dicaController.deleteDica);
 
 module.exports = router;
