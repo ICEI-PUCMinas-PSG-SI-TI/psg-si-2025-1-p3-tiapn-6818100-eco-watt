@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoWatt - Fórum</title>
+  <link rel="stylesheet" href="styles6.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .comentario {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .btn-flutuante {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #198754;
+      color: white;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .btn-flutuante:hover {
+      background-color: #145c32;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="navbar-brand logo-text">EcoWatt</div>
+    <div>
+      <a href="index8.html" class="btn btn-navbar me-2">Histórico</a>
+      <a href="index3.html" class="btn btn-navbar me-2">Login</a>
+      <a href="index4.html" class="btn btn-navbar me-2">Cadastro</a>
+      <a href="index.html" class="btn btn-navbar me-2">Calculadora</a>
+      <a href="index6.html" class="btn btn-navbar me-2 active">Fórum</a>
+      <a href="index5.html" class="btn btn-navbar me-2">Início</a>
+      <button id="btnLogout" class="btn btn-danger">Sair</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Conteúdo principal -->
+<div class="container mt-4" style="max-width: 700px;">
+  <h1>Fórum</h1>
+  <div id="usuarioLogadoMsg" class="mb-3 fw-bold"></div>
+  <div id="comentarios"></div>
+</div>
+
+<!-- Botão flutuante para novo post -->
+<a href="novoPost.html" class="btn-flutuante" title="Novo post">+</a>
+
+<script>
+  const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+  const token = localStorage.getItem('token');
+  const container = document.getElementById("comentarios");
+
+  function protegerRota() {
+    if (!usuario || !token) {
+      alert("Você precisa estar logado para acessar.");
+      window.location.href = "index3.html";
+    }
+  }
+
+  function fetchAutenticado(url, options = {}) {
+    const headers = {
+      ...(options.headers || {}),
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    };
+    return fetch(url, { ...options, headers });
+  }
+
+  async function carregarPosts() {
+    container.innerHTML = "<p>Carregando...</p>";
+    try {
+      const res = await fetchAutenticado("http://localhost:3030/posts");
+      const posts = await res.json();
+
+      if (!posts.length) {
+        container.innerHTML = "<p>Nenhum post encontrado.</p>";
+        return;
+      }
+
+      container.innerHTML = "";
+      posts.sort((a, b) => b.Id - a.Id).forEach(post => {
+        const div = document.createElement("div");
+        div.className = "comentario";
+        div.innerHTML = `
+          <h5>${post.titulo}</h5>
+          <p>${post.descricao}</p>
+          <small>Autor: ${post.usuario_email} | ${post.data} ${post.hora}</small><br>
+          <a href="comentarios.html?post=${post.Id}" class="btn btn-sm btn-outline-success mt-2">Ver comentários</a>
+        `;
+        container.appendChild(div);
+      });
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = "<p>Erro ao carregar posts.</p>";
+    }
+  }
+
+  document.getElementById("btnLogout").addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    localStorage.removeItem("token");
+    window.location.href = "index3.html";
+  });
+
+  protegerRota();
+  document.getElementById("usuarioLogadoMsg").innerText = `Logado como: ${usuario.email}`;
+  carregarPosts();
+</script>
+
+</body>
+</html>
