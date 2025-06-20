@@ -1,51 +1,69 @@
 const db = require('../config/db');
 
 // Criar avaliação
-exports.createAvaliacao = async (req, res) => {
+// POST /avaliacoes - cria avaliação para uma dica
+exports.criarAvaliacao = async (req, res) => {
   try {
-    const { nota, comentario, post_id, usuario_email } = req.body;
+    const { nota, comentario, dica_id, usuario_email } = req.body;
 
-    if (!nota || !post_id || !usuario_email) {
-      return res.status(400).json({ error: 'Nota, post_id e usuario_email são obrigatórios' });
+    if (!nota || !dica_id || !usuario_email) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes' });
     }
 
-    const [result] = await db.query(
-      'INSERT INTO Avaliacao (nota, comentario, post_id, usuario_email) VALUES (?, ?, ?, ?)',
-      [nota, comentario, post_id, usuario_email]
+    const [existe] = await db.query(
+      'SELECT Id FROM Avaliacao WHERE usuario_email = ? AND dica_id = ?',
+      [usuario_email, dica_id]
     );
 
-    res.status(201).json({ message: 'Avaliação criada com sucesso', id: result.insertId });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao criar avaliação' });
-  }
-};
-
-// Listar todas as avaliações
-exports.getAllAvaliacoes = async (req, res) => {
-  try {
-    const [rows] = await db.query('SELECT * FROM Avaliacao');
-    res.json(rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao buscar avaliações' });
-  }
-};
-
-// Obter avaliação por ID
-exports.getAvaliacaoById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const [rows] = await db.query('SELECT * FROM Avaliacao WHERE Id = ?', [id]);
-
-    if (rows.length === 0) {
-      return res.status(404).json({ error: 'Avaliação não encontrada' });
+    if (existe.length > 0) {
+      return res.status(400).json({ error: 'Você já avaliou esta dica' });
     }
 
-    res.json(rows[0]);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao buscar avaliação' });
+    await db.query(
+      'INSERT INTO Avaliacao (nota, comentario, dica_id, usuario_email) VALUES (?, ?, ?, ?)',
+      [nota, comentario || '', dica_id, usuario_email]
+    );
+
+    res.status(201).json({ message: 'Avaliação registrada com sucesso' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao registrar avaliação' });
+  }
+};
+
+// GET /avaliacoes/dica/:id - retorna média e nota do usuário para a dica
+exports.getAvaliacaoPorDica = async (req, res) => {
+  const dicaId = parseInt(req.params.id);
+  const usuario_email = req.usuario?.email;
+
+  if (!dicaId) {
+    return res.status(400).json({ error: 'ID da dica inválido' });
+  }
+
+  try {
+    const [mediaResult] = await db.query(
+      'SELECT AVG(nota) AS media FROM Avaliacao WHERE dica_id = ?',
+      [dicaId]
+    );
+
+    let notaDoUsuario = null;
+    if (usuario_email) {
+      const [userResult] = await db.query(
+        'SELECT nota FROM Avaliacao WHERE usuario_email = ? AND dica_id = ? LIMIT 1',
+        [usuario_email, dicaId]
+      );
+      if (userResult.length > 0) {
+        notaDoUsuario = userResult[0].nota;
+      }
+    }
+
+    res.json({
+      media: mediaResult[0].media,
+      notaDoUsuario
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao buscar avaliações' });
   }
 };
 
@@ -88,18 +106,3 @@ exports.updateAvaliacao = async (req, res) => {
 };
 
 // Deletar avaliação
-exports.deleteAvaliacao = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const [result] = await db.query('DELETE FROM Avaliacao WHERE Id = ?', [id]);
-
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ error: 'Avaliação não encontrada' });
-    }
-
-    res.json({ message: 'Avaliação deletada com sucesso' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao deletar avaliação' });
-  }
-};

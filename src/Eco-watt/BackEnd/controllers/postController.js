@@ -35,6 +35,30 @@ async function createPost(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+async function createPost(req, res) {
+  try {
+    const { titulo, descricao, usuario_email } = req.body;
+    const imagem = req.file ? req.file.buffer : null;
+
+    if (!titulo || !descricao || !usuario_email) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes' });
+    }
+
+    const data = new Date();
+    const dataFormatada = data.toISOString().slice(0, 10);
+    const horaFormatada = data.toTimeString().slice(0, 8);
+
+    await db.query(
+      'INSERT INTO Post (titulo, descricao, data, hora, imagem, usuario_email) VALUES (?, ?, ?, ?, ?, ?)',
+      [titulo, descricao, dataFormatada, horaFormatada, imagem, usuario_email]
+    );
+
+    res.status(201).json({ mensagem: 'Post criado com sucesso' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao criar post' });
+  }
+};
 
 async function updatePost(req, res) {
   const { id } = req.params;

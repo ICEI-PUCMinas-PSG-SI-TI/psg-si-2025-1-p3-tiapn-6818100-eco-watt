@@ -6,7 +6,7 @@ const db = require('./config/db');
 
 // Middlewares corrigidos
 app.use(cors());
-app.use(express.json({ type: '*/*' }));  // Corrige parsing de JSON
+app.use(express.json());  // Corrige parsing de JSON
 
 // Teste de conexão com o banco
 db.query('SELECT 1 + 1 AS solution')

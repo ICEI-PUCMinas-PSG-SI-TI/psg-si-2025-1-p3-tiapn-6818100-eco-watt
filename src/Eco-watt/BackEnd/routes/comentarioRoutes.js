@@ -7,5 +7,6 @@ router.get('/:id', comentarioController.getComentarioById);
 router.post('/', comentarioController.createComentario);
 router.put('/:id', comentarioController.updateComentario);
 router.delete('/:id', comentarioController.deleteComentario);
+router.get('/post/:postId', comentarioController.getComentariosByPostId);
 
 module.exports = router;

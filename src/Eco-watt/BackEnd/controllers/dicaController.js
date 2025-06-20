@@ -1,24 +1,71 @@
 const db = require('../config/db');
 
-exports.createDica = async (req, res) => {
+// POST /avaliacoes - cria avaliação para uma dica
+exports.criarAvaliacao = async (req, res) => {
   try {
-    const { texto, eletrodomestico_id } = req.body;
+    const { nota, comentario, dica_id, usuario_email } = req.body;
 
-    if (!texto || !eletrodomestico_id) {
-      return res.status(400).json({ error: 'Texto e eletrodomestico_id são obrigatórios' });
+    if (!nota || !dica_id || !usuario_email) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes' });
     }
 
-    const [result] = await db.query(
-      'INSERT INTO Dica (texto, eletrodomestico_id) VALUES (?, ?)',
-      [texto, eletrodomestico_id]
+    const [existe] = await db.query(
+      'SELECT Id FROM Avaliacao WHERE usuario_email = ? AND dica_id = ?',
+      [usuario_email, dica_id]
     );
 
-    res.status(201).json({ message: 'Dica criada com sucesso', id: result.insertId });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao criar dica' });
+    if (existe.length > 0) {
+      return res.status(400).json({ error: 'Você já avaliou esta dica' });
+    }
+
+    await db.query(
+      'INSERT INTO Avaliacao (nota, comentario, dica_id, usuario_email) VALUES (?, ?, ?, ?)',
+      [nota, comentario || '', dica_id, usuario_email]
+    );
+
+    res.status(201).json({ message: 'Avaliação registrada com sucesso' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao registrar avaliação' });
   }
 };
+
+// GET /avaliacoes/dica/:id - retorna média e nota do usuário para a dica
+exports.getAvaliacaoPorDica = async (req, res) => {
+  const dicaId = parseInt(req.params.id);
+  const usuario_email = req.usuario?.email;
+
+  if (!dicaId) {
+    return res.status(400).json({ error: 'ID da dica inválido' });
+  }
+
+  try {
+    const [mediaResult] = await db.query(
+      'SELECT AVG(nota) AS media FROM Avaliacao WHERE dica_id = ?',
+      [dicaId]
+    );
+
+    let notaDoUsuario = null;
+    if (usuario_email) {
+      const [userResult] = await db.query(
+        'SELECT nota FROM Avaliacao WHERE usuario_email = ? AND dica_id = ? LIMIT 1',
+        [usuario_email, dicaId]
+      );
+      if (userResult.length > 0) {
+        notaDoUsuario = userResult[0].nota;
+      }
+    }
+
+    res.json({
+      media: mediaResult[0].media,
+      notaDoUsuario
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Erro ao buscar avaliações' });
+  }
+};
+
 
 exports.getAllDicas = async (req, res) => {
   try {
@@ -57,5 +104,30 @@ exports.deleteDica = async (req, res) => {
     res.json({ message: 'Dica deletada com sucesso' });
   } catch (error) {
     res.status(500).json({ error: 'Erro ao deletar dica' });
+  }
+};
+exports.getDicasPorEletrodomestico = async (req, res) => {
+  const eletroId = parseInt(req.params.id);
+
+  if (!eletroId) {
+    return res.status(400).json({ error: 'ID do eletrodoméstico inválido' });
+  }
+
+  try {
+    const [dicas] = await db.query(
+      'SELECT Id, texto, imagem FROM Dica WHERE eletrodomestico_id = ?',
+      [eletroId]
+    );
+
+    dicas.forEach(dica => {
+      if (dica.imagem) {
+        dica.imagem = dica.imagem.toString('base64');
+      }
+    });
+
+    res.json(dicas);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar dicas' });
   }
 };

@@ -4,7 +4,7 @@ const dicaController = require('../controllers/dicaController');
 
 router.get('/', dicaController.getAllDicas);
 router.get('/:id', dicaController.getDicaById);
-router.post('/', dicaController.createDica);
+router.get('/eletrodomestico/:id', dicaController.getDicasPorEletrodomestico);
 router.put('/:id', dicaController.updateDica);
 router.delete('/:id', dicaController.deleteDica);
 

@@ -3,15 +3,15 @@ const db = require('../config/db');
 // Criar comentário
 exports.createComentario = async (req, res) => {
   try {
-    const { texto, imagem, data, hora, post_id } = req.body;
+    const { texto, imagem, data, hora, post_id, usuario_email } = req.body;
 
     if (!texto || !data || !hora || !post_id) {
       return res.status(400).json({ error: 'Texto, data, hora e post_id são obrigatórios' });
     }
 
     const [result] = await db.query(
-      'INSERT INTO Comentario (texto, imagem, data, hora, post_id) VALUES (?, ?, ?, ?, ?)',
-      [texto, imagem, data, hora, post_id]
+      'INSERT INTO Comentario (texto, imagem, data, hora, post_id, usuario_email) VALUES (?, ?, ?, ?, ?, ?)',
+      [texto, imagem || null, data, hora, post_id, usuario_email || null]
     );
 
     res.status(201).json({ message: 'Comentário criado com sucesso', id: result.insertId });
@@ -20,6 +20,7 @@ exports.createComentario = async (req, res) => {
     res.status(500).json({ error: 'Erro ao criar comentário' });
   }
 };
+
 
 // Listar todos os comentários
 exports.getAllComentarios = async (req, res) => {
@@ -103,3 +104,22 @@ exports.deleteComentario = async (req, res) => {
     res.status(500).json({ error: 'Erro ao deletar comentário' });
   }
 };
+exports.getComentariosByPostId = async (req, res) => {
+  const { postId } = req.params;
+
+  try {
+    const [comentarios] = await db.query(`
+      SELECT C.*, U.nome
+      FROM Comentario C
+      LEFT JOIN Usuario U ON C.usuario_email = U.email
+      WHERE C.post_id = ?
+      ORDER BY C.data DESC, C.hora DESC
+    `, [postId]);
+
+    res.json(comentarios);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar comentários' });
+  }
+};
+

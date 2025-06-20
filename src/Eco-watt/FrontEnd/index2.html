@@ -3,325 +3,257 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EcoWatt - Alternativa Sustentável</title>
-  <link rel="stylesheet" href="styles2.css" />
+  <title>EcoWatt - Eletrodoméstico</title>
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #f3f7f9;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #198754;
+    }
+
+    .container-eletro {
+      max-width: 960px;
+      background: white;
+      padding: 40px;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    #tituloEletro {
+      font-weight: 700;
+      color: #212529;
+    }
+
+    #descricaoEletro {
+      font-size: 1.1rem;
+    }
+
+    .carrossel-imagem {
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
     .estrela {
-      font-size: 2rem;
+      font-size: 1.8rem;
       cursor: pointer;
       color: #ccc;
       transition: color 0.2s;
     }
-    .estrela.hovered, .estrela.filled {
+
+    .estrela.hovered,
+    .estrela.filled {
       color: #f1c40f;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+    }
+
+    .carousel-item {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .carousel-item p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+
+    .avaliacao-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .btn-danger {
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-      <div class="navbar-brand logo-text">EcoWatt</div>
-      <div>
-        <a href="index8.html" class="btn btn-navbar me-2">Histórico</a>
-        <a href="index3.html" class="btn btn-navbar me-2">Login</a>
-        <a href="index4.html" class="btn btn-navbar me-2">Cadastro</a>
-        <a href="index.html" class="btn btn-navbar me-2">Calculadora</a>
-        <a href="index6.html" class="btn btn-navbar me-2">Fórum</a>
-        <a href="index5.html" class="btn btn-navbar me-2">Início</a>
-        <button id="btnLogout" class="btn btn-danger">Sair</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Conteúdo principal -->
-  <div class="container conteudo-comparacao my-4">
-    <div class="row justify-content-center align-items-start">
-
-      <!-- Produto pesquisado -->
-      <div class="col-md-5 bloco-comparacao text-center">
-        <h3 class="titulo-produto" id="tituloProduto">Item digitado</h3>
-        <div id="carouselProduto" class="carousel slide carrossel-custom" data-bs-ride="carousel">
-          <div class="carousel-inner" id="carouselInnerProduto">
-            <!-- Imagens do produto aqui -->
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduto" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselProduto" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-        <div class="classificacao mt-3">
-          <span class="label-classificacao">Classificação de consumo:</span>
-          <span class="campo-classificacao" id="classificacaoProduto"></span>
-        </div>
-        <div class="dica mt-3" id="dicaProduto"></div>
-      </div>
-
-      <!-- Separador vertical -->
-      <div class="col-md-1 d-none d-md-flex justify-content-center">
-        <div class="separador-vertical"></div>
-      </div>
-
-      <!-- Produto alternativo ecológico -->
-      <div class="col-md-5 bloco-comparacao text-center">
-        <h3 class="titulo-produto" id="tituloAlternativo">Item econômico</h3>
-        <div id="carouselAlternativo" class="carousel slide carrossel-custom" data-bs-ride="carousel">
-          <div class="carousel-inner" id="carouselInnerAlternativo">
-            <!-- Imagens do alternativo aqui -->
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselAlternativo" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselAlternativo" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-        <div class="classificacao mt-3">
-          <span class="label-classificacao">Classificação de consumo:</span>
-          <span class="campo-classificacao" id="classificacaoAlternativo"></span>
-        </div>
-        <div class="dica mt-3" id="dicaAlternativo"></div>
-
-        <!-- Área de avaliação -->
-        <div class="avaliacao mt-4">
-          <h5>Avalie esta alternativa:</h5>
-          <div id="estrelas" class="d-flex justify-content-center"></div>
-          <p id="mensagemAvaliacao" class="mt-2 text-success"></p>
-        </div>
-
-      </div>
-
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid d-flex justify-content-between align-items-center px-4">
+    <div class="navbar-brand">EcoWatt</div>
+    <div>
+      <a href="index.html" class="btn btn-outline-success me-2">Voltar</a>
+      <button id="btnLogout" class="btn btn-danger">Sair</button>
     </div>
   </div>
+</nav>
 
-  <script>
-    const baseDados = {
-      geladeira: {
-        imagens: ['img/geladeira.jfif', 'img/geladeira.jfif'],
-        classificacao: 'ALTA',
-        dica: 'Evite abrir a geladeira muitas vezes para economizar energia.',
-        alternativo: {
-          imagens: ['img/cooler.jfif', 'img/cooler.jfif'],
-          classificacao: 'BAIXA',
-          dica: 'Use um cooler com gelo para conservar bebidas em pequenas reuniões.'
-        }
-      },
-      'chuveiro eletrico': {
-        imagens: ['img/chuveiro eletrico.jpg', 'img/chuveiro eletrico.jpg'],
-        classificacao: 'ALTA',
-        dica: 'Tome banhos mais curtos e regule a temperatura para evitar desperdício.',
-        alternativo: {
-          imagens: ['img/aquecedor.jfif', 'img/aquecedor.jfif'],
-          classificacao: 'BAIXA',
-          dica: 'Considere usar aquecedor solar para reduzir o consumo elétrico.'
-        }
-      },
-      'ferro de passar roupa': {
-        imagens: ['img/ferroRoupa.jpg', 'img/ferroRoupa.jpg'],
-        classificacao: 'MÉDIA',
-        dica: 'Agrupe as roupas para passar tudo de uma vez, evitando ligar e desligar várias vezes.',
-        alternativo: {
-          imagens: ['img/ferroRoupa.jpg', 'img/ferroRoupa.jpg'],
-          classificacao: 'MÉDIA',
-          dica: 'Use ferro a vapor com regulagem econômica para melhorar a eficiência.'
-        }
-      },
-      televisão: {
-        imagens: ['img/televisao.jpg', 'img/televisao.jpg'],
-        classificacao: 'MÉDIA',
-        dica: 'Reduza o brilho da tela e desligue quando não estiver assistindo.',
-        alternativo: {
-          imagens: ['img/televisao.jpg', 'img/televisao.jpg'],
-          classificacao: 'BAIXA',
-          dica: 'Prefira TVs LED, que consomem menos energia.'
-        }
-      },
-      lâmpada: {
-        imagens: ['img/lampada.jpg', 'img/lampada.jpg'],
-        classificacao: 'ALTA',
-        dica: 'Desligue a luz ao sair do ambiente e prefira luz natural sempre que possível.',
-        alternativo: {
-          imagens: ['img/lampada.jpg', 'img/lampada.jpg'],
-          classificacao: 'BAIXA',
-          dica: 'Use lâmpadas LED, que têm consumo muito menor e maior durabilidade.'
-        }
-      }
-    };
+<!-- Conteúdo -->
+<div class="container container-eletro">
+  <h2 id="tituloEletro" class="mb-2"></h2>
+  <p class="text-muted" id="descricaoEletro"></p>
+  <img id="imagemEletro" class="img-fluid rounded mb-4" style="max-height: 300px; display: none;" />
 
-    // Função para montar os carrosseis de imagens
-    function montarCarousel(imagens, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = ''; // limpa
+  <h5 class="mt-4 mb-3">Dicas para economia:</h5>
+  <div id="carrosselDicas" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" id="dicasContainer"></div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carrosselDicas" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon p-3"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carrosselDicas" data-bs-slide="next">
+      <span class="carousel-control-next-icon p-3"></span>
+    </button>
+  </div>
+</div>
 
-      imagens.forEach((imgSrc, index) => {
-        const divItem = document.createElement('div');
-        divItem.classList.add('carousel-item');
-        if (index === 0) divItem.classList.add('active');
+<script>
+  const token = localStorage.getItem("token");
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+  const eletroId = new URLSearchParams(window.location.search).get("id");
 
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        img.classList.add('d-block', 'w-100');
-        img.alt = `Imagem ${index + 1}`;
+  if (!eletroId || !token || !usuario) {
+    alert("Você precisa estar logado.");
+    window.location.href = "index3.html";
+  }
 
-        divItem.appendChild(img);
-        container.appendChild(divItem);
-      });
-    }
+  document.getElementById("btnLogout").addEventListener("click", () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "index3.html";
+  });
 
-    // Função para capitalizar o nome do item
-    function capitalize(text) {
-      return text.charAt(0).toUpperCase() + text.slice(1);
-    }
+  async function carregarEletro() {
+    try {
+      const res = await fetch(`http://localhost:3030/eletrodomesticos/${eletroId}`);
+      const eletro = await res.json();
 
-    // Recebe o item via query string ?item=geladeira
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
+      document.getElementById("tituloEletro").textContent = eletro.nome;
+      document.getElementById("descricaoEletro").textContent = eletro.descricao;
 
-    // Controle botão logout
-    const btnLogout = document.getElementById('btnLogout');
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-
-    if (!usuarioLogado) {
-      btnLogout.style.display = 'none';
-    }
-
-    btnLogout.addEventListener('click', () => {
-      localStorage.removeItem('usuarioLogado');
-      alert('Você saiu da sua conta.');
-      window.location.href = 'index3.html';
-    });
-
-    // Função para criar o sistema de estrelas avaliativas
-    function criarEstrelas(item) {
-      const container = document.getElementById('estrelas');
-      container.innerHTML = '';
-
-      const usuario = localStorage.getItem('usuarioLogado');
-      const votos = JSON.parse(localStorage.getItem('avaliacoes')) || {};
-      const jaVotou = usuario && votos[usuario] && votos[usuario][item] !== undefined;
-      const notaAtual = jaVotou ? votos[usuario][item] : 0;
-
-      const estrelas = [];
-
-      for (let i = 1; i <= 5; i++) {
-        const estrela = document.createElement('span');
-        estrela.classList.add('estrela');
-        estrela.innerHTML = '★';
-        estrela.dataset.valor = i;
-
-        // Se o usuário já votou, desabilita clique e cursor
-        if (jaVotou) {
-          estrela.style.cursor = 'default';
-        } else {
-          estrela.style.cursor = 'pointer';
-        }
-
-        // Pinta as estrelas preenchidas com base na nota atual
-        if (i <= notaAtual) {
-          estrela.classList.add('filled');
-        }
-
-        if (!jaVotou) {
-          estrela.addEventListener('mouseover', () => {
-            estrelas.forEach((e, index) => {
-              if (index < i) {
-                e.classList.add('hovered');
-              } else {
-                e.classList.remove('hovered');
-              }
-            });
-          });
-
-          estrela.addEventListener('mouseout', () => {
-            estrelas.forEach(e => e.classList.remove('hovered'));
-          });
-
-          estrela.addEventListener('click', () => {
-            if (!usuario) {
-              alert('Você precisa estar logado para avaliar.');
-              return;
-            }
-
-            const novaNota = i;
-
-            if (!votos[usuario]) {
-              votos[usuario] = {};
-            }
-
-            votos[usuario][item] = novaNota;
-            localStorage.setItem('avaliacoes', JSON.stringify(votos));
-
-            document.getElementById('mensagemAvaliacao').innerText = `Obrigado! Sua avaliação de ${novaNota} estrela(s) foi registrada.`;
-
-            criarEstrelas(item);
-          });
-        }
-
-        estrelas.push(estrela);
-        container.appendChild(estrela);
+      if (eletro.imagem) {
+        const img = document.getElementById("imagemEletro");
+        img.src = `data:image/jpeg;base64,${eletro.imagem}`;
+        img.style.display = "block";
       }
 
-      if (jaVotou) {
-        document.getElementById('mensagemAvaliacao').innerText = `Você já avaliou este item com ${notaAtual} estrela(s).`;
-      } else {
-        document.getElementById('mensagemAvaliacao').innerText = '';
-      }
+      carregarDicas();
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao carregar eletrodoméstico.");
     }
+  }
 
-    // Função para exibir os dados do item pesquisado e da alternativa
-    function exibirDados(item) {
-      const prod = baseDados[item.toLowerCase()];
+  async function carregarDicas() {
+    try {
+      const res = await fetch(`http://localhost:3030/dicas/eletrodomestico/${eletroId}`);
+      const dicas = await res.json();
+      const container = document.getElementById("dicasContainer");
 
-      if (!prod) {
-        document.getElementById('tituloProduto').innerText = 'Item não encontrado';
-        document.getElementById('carouselInnerProduto').innerHTML = '';
-        document.getElementById('classificacaoProduto').innerText = '';
-        document.getElementById('dicaProduto').innerText = '';
-
-        document.getElementById('tituloAlternativo').innerText = 'Sem alternativa disponível';
-        document.getElementById('carouselInnerAlternativo').innerHTML = '';
-        document.getElementById('classificacaoAlternativo').innerText = '';
-        document.getElementById('dicaAlternativo').innerText = '';
-        document.getElementById('estrelas').innerHTML = '';
-        document.getElementById('mensagemAvaliacao').innerText = '';
+      if (dicas.length === 0) {
+        container.innerHTML = "<div class='carousel-item active'><p class='text-muted'>Sem dicas disponíveis.</p></div>";
         return;
       }
 
-      // Produto pesquisado
-      document.getElementById('tituloProduto').innerText = `Item pesquisado: ${capitalize(item)}`;
-      montarCarousel(prod.imagens, 'carouselInnerProduto');
-      document.getElementById('classificacaoProduto').innerText = prod.classificacao;
-      document.getElementById('dicaProduto').innerText = prod.dica;
+      container.innerHTML = "";
 
-      // Alternativa econômica
-      document.getElementById('tituloAlternativo').innerText = `Alternativa econômica`;
-      montarCarousel(prod.alternativo.imagens, 'carouselInnerAlternativo');
-      document.getElementById('classificacaoAlternativo').innerText = prod.alternativo.classificacao;
-      document.getElementById('dicaAlternativo').innerText = prod.alternativo.dica;
+      for (let i = 0; i < dicas.length; i++) {
+        const dica = dicas[i];
+        const item = document.createElement("div");
+        item.classList.add("carousel-item");
+        if (i === 0) item.classList.add("active");
 
-      // Cria as estrelas de avaliação para o item pesquisado
-      criarEstrelas(item.toLowerCase());
-    }
+        const imgHTML = dica.imagem ? `<img src="data:image/jpeg;base64,${dica.imagem}" class="d-block w-100 carrossel-imagem mb-2">` : '';
+        const textoHTML = `<p>${dica.texto}</p>`;
+        const avaliacaoHTML = await montarEstrelasDaDica(dica.Id);
 
-    // Ao carregar a página, pega o parâmetro e exibe
-    window.onload = () => {
-      const item = getQueryParam('item');
-      if (item) {
-        exibirDados(item);
-      } else {
-        // Se não passar parâmetro, mostra a primeira da lista
-        const primeiraChave = Object.keys(baseDados)[0];
-        exibirDados(primeiraChave);
+        item.innerHTML = `${imgHTML}${textoHTML}${avaliacaoHTML}`;
+        container.appendChild(item);
       }
-    };
-  </script>
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function montarEstrelasDaDica(dicaId) {
+    try {
+      const res = await fetch(`http://localhost:3030/avaliacoes/dica/${dicaId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const { media, notaDoUsuario } = await res.json();
+
+      let html = `<div class="avaliacao-label mt-2"><strong>Média:</strong> ${media?.toFixed(1) || "Sem avaliações"}</div>`;
+      html += `<div class="d-flex gap-1 align-items-center justify-content-center mt-1" id="estrelas-dica-${dicaId}">`;
+
+      for (let i = 1; i <= 5; i++) {
+        html += `<span class="estrela" data-id="${dicaId}" data-valor="${i}" style="color: ${
+          i <= (notaDoUsuario || 0) ? "#f1c40f" : "#ccc"
+        }">★</span>`;
+      }
+
+      html += `</div><div class="text-success small mt-1" id="msg-dica-${dicaId}">${
+        notaDoUsuario ? `Você avaliou com ${notaDoUsuario} estrela(s).` : ""
+      }</div>`;
+
+      return html;
+    } catch (err) {
+      return "<p class='text-danger'>Erro ao carregar avaliação.</p>";
+    }
+  }
+
+  document.addEventListener("click", async (e) => {
+    if (e.target.classList.contains("estrela")) {
+      const dicaId = e.target.dataset.id;
+      const valor = parseInt(e.target.dataset.valor);
+
+      try {
+        const body = {
+          nota: valor,
+          comentario: "",
+          usuario_email: usuario.email,
+          dica_id: dicaId
+        };
+
+        const res = await fetch("http://localhost:3030/avaliacoes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify(body)
+        });
+
+        const resposta = await res.json();
+
+        if (!res.ok) {
+          alert(resposta.error || "Erro ao avaliar.");
+        } else {
+          alert(`Você avaliou com ${valor} estrela(s)!`);
+          carregarDicas();
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erro ao enviar avaliação.");
+      }
+    }
+  });
+
+  carregarEletro();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

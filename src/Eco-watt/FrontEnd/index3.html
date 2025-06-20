@@ -16,7 +16,7 @@
       <div class="navbar-brand logo-text">EcoWatt</div>
       <div>
         <a href="index8.html" class="btn btn-navbar me-2">Histórico</a>
-        <a href="index3.html" class="btn btn-navbar me-2">Login</a>
+        <a href="index3.html" class="btn btn-navbar me-2 active">Login</a>
         <a href="index4.html" class="btn btn-navbar me-2">Cadastro</a>
         <a href="index.html" class="btn btn-navbar me-2">Calculadora</a>
         <a href="index6.html" class="btn btn-navbar me-2">Fórum</a>
@@ -26,44 +26,24 @@
     </div>
   </nav>
 
-  <!-- Conteúdo principal: Tela de Login -->
-  <div class="container d-flex flex-column align-items-center justify-content-center conteudo-principal" style="min-height: 70vh;">
-    <h1 class="titulo-bemvindo">Login</h1>
+  <!-- Conteúdo -->
+  <div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+    <h1 class="mb-4">Login</h1>
 
-    <form class="form-login" style="width: 100%; max-width: 400px;">
+    <form id="formLogin" style="width: 100%; max-width: 400px;">
       <div class="mb-3">
         <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required />
+        <input type="email" class="form-control" id="email" required />
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required />
+        <input type="password" class="form-control" id="senha" required />
       </div>
-      <button type="submit" class="btn btn-login w-100">Entrar</button>
+      <button type="submit" class="btn btn-success w-100">Entrar</button>
     </form>
   </div>
 
   <script>
-    // Login
-    document.querySelector('.form-login').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const email = document.getElementById('email').value.trim().toLowerCase();
-      const senha = document.getElementById('senha').value;
-
-      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      const usuario = usuarios.find(u => u.email === email && u.senha === senha);
-
-      if (usuario) {
-        localStorage.setItem('usuarioLogado', JSON.stringify({ nome: usuario.nome, email: usuario.email }));
-        alert('Login realizado com sucesso!');
-        window.location.href = 'index6.html'; // redireciona para fórum
-      } else {
-        alert('Email ou senha incorretos.');
-      }
-    });
-
-    // Logout
     const btnLogout = document.getElementById('btnLogout');
     const usuarioLogado = localStorage.getItem('usuarioLogado');
 
@@ -73,8 +53,46 @@
 
     btnLogout.addEventListener('click', () => {
       localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('token');
       alert('Você saiu da sua conta.');
-      window.location.href = 'index3.html'; // redireciona para login
+      window.location.href = 'index3.html';
+    });
+
+    document.getElementById('formLogin').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const senha = document.getElementById('senha').value;
+
+      if (!email || !senha) {
+        alert('Preencha todos os campos.');
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:3030/usuarios/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+
+        const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || 'Falha no login.');
+        return;
+      }
+
+      localStorage.setItem('usuarioLogado', JSON.stringify({ email: data.user.email, nome: data.user.nome }));
+      localStorage.setItem('token', data.token);
+
+
+        alert('Login realizado com sucesso!');
+        window.location.href = 'index6.html';
+      } catch (err) {
+        alert('Erro ao se conectar com o servidor.');
+        console.error(err);
+      }
     });
   </script>
 

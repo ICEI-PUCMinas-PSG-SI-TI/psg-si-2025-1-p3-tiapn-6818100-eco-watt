@@ -61,12 +61,12 @@ exports.login = async (req, res) => {
       nome: user.nome
     });
     
-    res.json({ 
-      token,
-      user: {
-        email: user.email,
-        nome: user.nome
-      }
+res.json({ 
+  token,
+  user: {
+    email: user.email,
+    nome: user.nome
+  }
     });
   } catch (error) {
     console.error(error);

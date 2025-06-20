@@ -17,7 +17,7 @@
       <div>
         <a href="index8.html" class="btn btn-navbar me-2">Histórico</a>
         <a href="index3.html" class="btn btn-navbar me-2">Login</a>
-        <a href="index4.html" class="btn btn-navbar me-2">Cadastro</a>
+        <a href="index4.html" class="btn btn-navbar me-2 active">Cadastro</a>
         <a href="index.html" class="btn btn-navbar me-2">Calculadora</a>
         <a href="index6.html" class="btn btn-navbar me-2">Fórum</a>
         <a href="index5.html" class="btn btn-navbar me-2">Início</a>
@@ -26,61 +26,32 @@
     </div>
   </nav>
 
-  <!-- Conteúdo principal: Tela de Registro -->
-  <div class="container d-flex flex-column align-items-center justify-content-center conteudo-principal" style="min-height: 70vh;">
-    <h1 class="titulo-bemvindo">Cadastro</h1>
+  <!-- Conteúdo principal -->
+  <div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+    <h1 class="mb-4">Cadastro</h1>
 
-    <form class="form-registro" style="width: 100%; max-width: 400px;">
+    <form id="formCadastro" style="width: 100%; max-width: 400px;">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome Completo</label>
-        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome completo" required />
+        <input type="text" class="form-control" id="nome" required />
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required />
+        <input type="email" class="form-control" id="email" required />
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senha" placeholder="Crie uma senha" required />
+        <input type="password" class="form-control" id="senha" required />
       </div>
       <div class="mb-3">
         <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
-        <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required />
+        <input type="password" class="form-control" id="confirmarSenha" required />
       </div>
-      <button type="submit" class="btn btn-registro w-100">Cadastrar</button>
+      <button type="submit" class="btn btn-success w-100">Cadastrar</button>
     </form>
   </div>
 
   <script>
-    // Cadastro
-    document.querySelector('.form-registro').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const nome = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim().toLowerCase();
-      const senha = document.getElementById('senha').value;
-      const confirmarSenha = document.getElementById('confirmarSenha').value;
-
-      if (senha !== confirmarSenha) {
-        alert('As senhas não coincidem.');
-        return;
-      }
-
-      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-      if (usuarios.some(u => u.email === email)) {
-        alert('Este e-mail já está cadastrado.');
-        return;
-      }
-
-      usuarios.push({ nome, email, senha });
-      localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-      alert('Cadastro realizado com sucesso! Agora faça login.');
-      window.location.href = 'index3.html';
-    });
-
-    // Logout
     const btnLogout = document.getElementById('btnLogout');
     const usuarioLogado = localStorage.getItem('usuarioLogado');
 
@@ -90,8 +61,49 @@
 
     btnLogout.addEventListener('click', () => {
       localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('token');
       alert('Você saiu da sua conta.');
       window.location.href = 'index3.html';
+    });
+
+    document.getElementById('formCadastro').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+      if (!nome || !email || !senha || !confirmarSenha) {
+        alert('Preencha todos os campos.');
+        return;
+      }
+
+      if (senha !== confirmarSenha) {
+        alert('As senhas não coincidem.');
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:3030/usuarios/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, senha })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.error || 'Erro ao cadastrar usuário.');
+          return;
+        }
+
+        alert('Cadastro realizado com sucesso! Faça login agora.');
+        window.location.href = 'index3.html';
+      } catch (err) {
+        alert('Erro ao se conectar com o servidor.');
+        console.error(err);
+      }
     });
   </script>
 
