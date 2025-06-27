@@ -1,76 +1,48 @@
-CREATE VIEW vw_resumo_sistema AS
+CREATE VIEW indicador_media_avaliacoes_por_dica AS
 SELECT 
-  (SELECT COUNT(*) FROM Usuario) AS total_usuarios,
-  (SELECT COUNT(*) FROM Post) AS total_posts,
-  (SELECT COUNT(*) FROM Comentario) AS total_comentarios,
-  (SELECT COUNT(*) FROM Avaliacao) AS total_avaliacoes,
-  (SELECT AVG(nota) FROM Avaliacao) AS media_avaliacoes
-;
+    ROUND(COUNT(*) / (SELECT COUNT(*) FROM Dica), 2) AS media_avaliacoes_por_dica
+FROM Avaliacao;
 
-
--- Calcula métricas de interação para cada publicação
-CREATE VIEW vw_engajamento_por_post AS 
+CREATE VIEW indicador_top_avaliador AS
 SELECT 
-  p.Id,
-  p.titulo,
-  -- Contagem de comentários por post
-  COUNT(DISTINCT c.Id) AS total_comentarios,
-  -- Contagem de avaliações por post
-  COUNT(DISTINCT a.Id) AS total_avaliacoes,
-  -- Média de notas (0 se não tiver avaliações)
-  COALESCE(AVG(a.nota), 0) AS media_notas
-FROM Post p
-LEFT JOIN Comentario c ON p.Id = c.post_id
-LEFT JOIN Avaliacao a ON p.Id = a.post_id
-GROUP BY p.Id, p.titulo
-;
+    U.nome AS usuario,
+    COUNT(A.Id) AS total_avaliacoes
+FROM Avaliacao A
+INNER JOIN Usuario U ON A.usuario_email = U.email
+GROUP BY U.nome
+ORDER BY total_avaliacoes DESC
+LIMIT 1;
 
-
--- Identifica os aparelhos mais comuns entre usuários
-CREATE VIEW vw_eletrodomesticos_populares AS
+CREATE VIEW indicador_top_dicas_por_eletro AS
 SELECT 
-  e.nome AS eletrodomestico,
-  -- Soma da quantidade possuída por todos usuários
-  SUM(ue.quantidade) AS total_possuido
-FROM UsuarioEletrodomestico ue
-JOIN Eletrodomestico e ON ue.eletrodomestico_id = e.Id
-GROUP BY e.nome
-ORDER BY total_possuido DESC
-;
+    E.nome AS eletrodomestico,
+    COUNT(D.Id) AS total_dicas
+FROM Dica D
+INNER JOIN Eletrodomestico E ON D.Eletrodomestico_id = E.Id
+GROUP BY E.nome
+ORDER BY total_dicas DESC
+LIMIT 1;
 
+CREATE VIEW indicador_nota_media_geral AS
+SELECT ROUND(AVG(nota), 2) AS nota_media_geral FROM Avaliacao;
 
--- Uma única consulta com todos os principais indicadores
-SELECT 
-  (SELECT total_usuarios FROM vw_resumo_sistema) AS usuarios,
-  (select Comentario from vw_engajamento_por_post ) as engamento,
-  (SELECT total_posts FROM vw_resumo_sistema) AS posts,
-  (SELECT total_comentarios FROM vw_resumo_sistema) AS comentarios,
-  (SELECT media_avaliacoes FROM vw_resumo_sistema) AS avaliacao_media,
-  (SELECT eletrodomestico FROM vw_eletrodomesticos_populares LIMIT 1) AS eletro_top
-;
+CREATE VIEW indicador_total_avaliacoes AS
+SELECT COUNT(*) AS total_avaliacoes FROM Avaliacao;
 
--- Identifica usuários que mais contribuem
-CREATE VIEW vw_usuarios_ativos AS
-SELECT 
-  u.email,
-  u.nome,
-  COUNT(p.Id) AS total_posts,
-  COUNT(c.Id) AS total_comentarios
-FROM Usuario u
-LEFT JOIN Post p ON u.email = p.usuario_email
-LEFT JOIN Comentario c ON u.email = c.usuario_email
-GROUP BY u.email, u.nome
-HAVING total_posts > 0 OR total_comentarios > 0
-;
+CREATE VIEW indicador_total_dicas AS
+SELECT COUNT(*) AS total_dicas FROM Dica;
 
+CREATE VIEW indicador_total_eletrodomesticos AS
+SELECT COUNT(*) AS total_eletrodomesticos FROM Eletrodomestico;
+	
+CREATE VIEW indicador_total_usuarios AS
+SELECT COUNT(*) AS total_usuarios FROM Usuario;
 
--- Calcula porcentagem de usuários que publicam conteúdo
-SELECT 
-  (SELECT COUNT(*) FROM vw_usuarios_ativos) AS usuarios_ativos,
-  (SELECT COUNT(*) FROM Usuario) AS total_usuarios,
-  ROUND(
-    (SELECT COUNT(*) FROM vw_usuarios_ativos) / 
-    (SELECT COUNT(*) FROM Usuario) * 100, 
-  2
-  ) AS taxa_ativacao
-;
+SELECT * FROM indicador_media_avaliacoes_por_dica;
+SELECT * FROM indicador_top_avaliador;
+SELECT * FROM indicador_top_dicas_por_eletro;
+SELECT * FROM indicador_total_eletrodomesticos;
+SELECT * FROM indicador_total_dicas;
+SELECT * FROM indicador_total_avaliacoes;
+SELECT * FROM indicador_nota_media_geral;
+SELECT * FROM indicador_total_usuarios;
