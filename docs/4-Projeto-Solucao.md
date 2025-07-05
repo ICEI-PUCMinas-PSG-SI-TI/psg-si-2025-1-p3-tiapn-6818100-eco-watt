@@ -10,9 +10,9 @@ O sistema é composto por:
 
 • Frontend (cliente): desenvolvido com HTML, CSS e JavaScript (com opção de usar frameworks como React ou Vue.js), responsável por exibir as páginas da calculadora, dicas, fórum e perfil do usuário.
 
-• Backend (servidor): API desenvolvida em Node.js (ou Python com Flask), hospedada no Heroku ou Render, que processa os cálculos de consumo, armazena dados do usuário e gerencia o fórum.
+• Backend (servidor): API desenvolvida em Node.js express, hospedada no local host, que processa os cálculos de consumo, armazena dados do usuário e gerencia o fórum.
 
-• Banco de Dados: MongoDB ou Firebase, para armazenar os registros dos cálculos, usuários, dicas e postagens do fórum.
+• Banco de Dados: MySql, para armazenar os registros dos cálculos, usuários, dicas e postagens do fórum.
 
 • Armazenamento Local: o navegador pode utilizar LocalStorage para manter preferências ou dados temporários.
 
